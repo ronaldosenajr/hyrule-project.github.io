@@ -1,0 +1,24 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "A website project contemplating Hyrule.",
+  "main": "index.js",
+  "dependencies": {
+    "@types/jest": "^27.0.1",
+    "jest": "^27.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronaldosenajr/Hyrule-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronaldosenajr/Hyrule-Project/issues"
+  },
+  "homepage": "https://github.com/ronaldosenajr/Hyrule-Project#readme"
+}
