@@ -22,21 +22,29 @@ body {
 
 #nav-bar-container div {
 	background-color: #0d9263;
+	border-radius: 5%;
+	border: 2px solid #073824;
+	border-radius: 5%;
 	padding: 0.8rem;
 	min-width: 40px;
+	transition: all ease-in-out 0.15s;
+	text-align: center;
 }
 
-#nav-bar-container div:hover {
-	background-color: #4aba91;
+#nav-bar-container a div:hover{
 	cursor: pointer;
+	border: none;
+	box-shadow: 2px 2px #d4ce46, -2px -2px #d4ce46;
+	color: #0e5135;
 }
 
-#nav-bar-container div a {
-	display: flex;
+#nav-bar-container  a {
 	justify-content: space-around;
+	max-width: 100px;
 	text-decoration: none;
 	color: #d4ce46;
 	font-weight: bolder;
+	width: 100%;
 }
 
 .hero {
