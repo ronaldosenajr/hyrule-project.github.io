@@ -120,20 +120,25 @@ body {
 	#nav-bar-container {
 		flex-wrap: nowrap;
 	}
+
 	#nav-bar-container div {
 		padding: 0.5rem;
 	}
+
 	.hyrule-banner {
 		padding-top: 3rem;
 	}
+
 	.hyrule-banner h1 {
 		top: 60%;
 		font-size: 30px;
 		text-shadow: -1px 0 #0e5135, 0 1px #0e5135, 1px 0 #0e5135, 0 -1px #0e5135;
 	}
+
 	.card-img {
 		width: 100px;
 	}
+	
 	.card {
 		width: 80%;
 	}
