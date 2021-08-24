@@ -1,3 +1,8 @@
+@font-face {
+	font-family: zelda;
+	src: url("../fonts/Zelda.otf");
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -82,8 +87,11 @@ body {
 	margin: 0;
 	text-align: center;
 	color: #0d9263;
-	text-shadow: -2px 0 #0e5135, 0 2px #0e5135, 2px 0 #0e5135, 0 -2px #0e5135;
+	text-shadow: -1px 0 #d4cd46cc, 0 2px #0e5135, 2px 0 #0e5135, 0 -1px #d4ce46cc;
 	box-shadow: 0px 2px #d4ce46;
+	font-size: 6rem;
+	letter-spacing: 1rem;
+	font-family: zelda;
 }
 
 #content {
@@ -111,14 +119,32 @@ body {
 }
 
 .container {
+	display: flex;
 	padding: 20px 16px;
 	text-align: justify;
 	color: whitesmoke;
+	flex-wrap: wrap;
 }
 
 .container h3 {
 	text-align: center;
+	color: white;
+	font-family: zelda;
+	font-size: 2rem;
+	letter-spacing: 1rem;
+	text-shadow: -1px 0 rgba(0, 0, 0, 0.726), 0 1px rgba(0, 0, 0, 0.726), 1px 0 rgba(0, 0, 0, 0.726), 0 -1px rgba(0, 0, 0, 0.726);
+}
+
+footer {
+	display: flex;
+	margin-top: 1rem;
+	padding: 1rem;
+	background-color: #053320;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 	color: #d4ce46;
+	flex-wrap: wrap;
 }
 
 @media ( max-width: 900px) {
@@ -150,5 +176,9 @@ body {
 	
 	.card {
 		width: 80%;
+	}
+
+	.container h3 {
+		font-size: 1rem;
 	}
 }
