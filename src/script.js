@@ -45,7 +45,7 @@ async function appendCards(data) {
 	removeCards();
 	const a = await data;
 	const dataValues = Object.values(a);
-	for (let i = 0; i < 12; i += 1) {
+	for (let i = 0; i < dataValues.length; i += 1) {
 		const card = CreateCard(dataValues[i]);
 		contentHolder.appendChild(card);
 	}
