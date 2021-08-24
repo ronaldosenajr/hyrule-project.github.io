@@ -18,6 +18,7 @@ body {
 	position: fixed;
 	z-index: 5;
 	width: 100%;
+	flex-wrap: wrap;
 }
 
 #nav-bar-container {
@@ -124,6 +125,8 @@ body {
 	text-align: justify;
 	color: whitesmoke;
 	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .container h3 {
@@ -179,8 +182,7 @@ footer {
 	}
 
 	.container h3 {
-		font-size: 1rem;
-		align-self: center;
-		text-align: center;
+		font-size: 1.2rem;
+		letter-spacing: 0.5rem;
 	}
 }
