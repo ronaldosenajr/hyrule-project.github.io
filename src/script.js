@@ -72,5 +72,5 @@ function addEventListeners() {
 addEventListeners();
 
 $(window).on("load",function(){
-	$(".loader-wrapper").fadeOut("slow");
+	$(".loader-wrapper").fadeOut(1600, "linear");
 	}); 
