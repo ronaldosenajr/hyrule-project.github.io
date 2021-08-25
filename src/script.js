@@ -71,6 +71,6 @@ function addEventListeners() {
 
 addEventListeners();
 
-// comentário para dar push[2].
-
-
+$(window).on("load",function(){
+	$(".loader-wrapper").fadeOut("slow");
+	}); 
