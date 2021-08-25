@@ -20,11 +20,12 @@ function createTextElements(h3, p, img, data) {
 	img.src = data.image;
 }
 
-function CreateCard(data) {
+function CreateCard(data, index) {
 	const card = document.createElement('div');
 	card.className = 'card';
 	const img = document.createElement('img');
 	img.className = 'card-img';
+	card.id = index;
 	const container = document.createElement('div');
 	container.className = "container";
 	const h3 = document.createElement('h3');
@@ -41,17 +42,24 @@ function removeCards() {
 	contentHolder.innerHTML = '';
 }
 
+let localData = [];
+
 async function appendCards(data) {
+	$(".loader-wrapper").fadeOut("slow");
 	removeCards();
-	const a = await data;
-	const dataValues = Object.values(a);
+	const promise = await data;
+	const dataValues = promise;
+	localData = promise;
 	for (let i = 0; i < dataValues.length; i += 1) {
-		const card = CreateCard(dataValues[i]);
+		const card = CreateCard(dataValues[i], i);
 		contentHolder.appendChild(card);
 	}
 }
 
-function getCategoryText(event, callback) {
+
+
+function getCategoryText(event) {
+	$(".loader-wrapper").fadeIn("fast");
 	const category = event.target.innerHTML.toLowerCase();
 	let data = ''
 	if (category === 'food') {
@@ -72,5 +80,5 @@ function addEventListeners() {
 addEventListeners();
 
 $(window).on("load",function(){
-	$(".loader-wrapper").fadeOut(1600, "linear");
+	$(".loader-wrapper").fadeOut("slow");
 	}); 

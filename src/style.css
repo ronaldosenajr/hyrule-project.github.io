@@ -187,22 +187,20 @@ footer {
 	}
 }
 
-body, html {
-    height: 100%;
-    text-align: center;
-}
-
-body {
-  background-color: #242F3F;
+.loader-wrapper {
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .loader {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
+  display: flex;
+  width: 50px;
+  height: 50px;
   position: relative;
+  justify-content: center;
   border: 4px solid #Fff;
-  top: 50%;
+  align-self: center;
   animation: loader 2s infinite ease;
 }
 
