@@ -41,6 +41,24 @@ function removeCards() {
 	contentHolder.innerHTML = '';
 }
 
+function changeClass(event) {
+  const card = event.target;
+  card.classList.remove('card');
+  card.classList.add('evidenceCard');
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card) => card.style.display = 'none');
+
+  card.addEventListener('click', () => {
+    card.classList.remove('evidenceCard');
+    card.classList.add('card');
+    card.addEventListener('click', changeClass);
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card) => {
+      card.style.display = 'flex'
+    });
+  })
+}
+
 async function appendCards(data) {
 	removeCards();
 	const a = await data;
@@ -48,8 +66,26 @@ async function appendCards(data) {
 	for (let i = 0; i < dataValues.length; i += 1) {
 		const card = CreateCard(dataValues[i]);
 		contentHolder.appendChild(card);
+    card.addEventListener('click', changeClass);
 	}
 }
+
+/* const cards = document.querySelectorAll('.card');
+  cards.forEach((card) => {
+    card.addEventListener('click', function changeClass() {
+      card.classList.remove('card');
+      card.classList.add('evidenceCard');
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((card) => card.style.display = 'none');
+
+      const evidenceCard = document.querySelector('.evidenceCard');
+      evidenceCard.addEventListener('click', () => {
+        evidenceCard.classList.remove('evidenceCard');
+        evidenceCard.classList.add('card');
+        cards.forEach((card) => card.style.display = 'flex');
+      });
+    })
+  }); */
 
 function getCategoryText(event, callback) {
 	const category = event.target.innerHTML.toLowerCase();
@@ -64,13 +100,14 @@ function getCategoryText(event, callback) {
 	appendCards(data);
 }
 
-function addEventListeners() {
+async function addEventListeners() {
 	const category = []
 	navBtns.forEach((button) => button.addEventListener('click', getCategoryText));
 }
 
 addEventListeners();
 
-// comentário para dar push.
+// Hofs para os carts
+
 
 
