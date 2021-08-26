@@ -17,13 +17,10 @@ document.addEventListener('wheel', () => {
 	}
 });
 
-<<<<<<< HEAD
 // async function getCreatures(food = false) {
 /* async function getCreatures(food = false) {
-=======
 /* async function getCreatures(food = false) {
 async function getCreatures(food = false) {
->>>>>>> 10c3f09edabbb62009c034d186b0e42974ba4483
 	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
 	if (food === false) {
 		return await fetch(url).then((value) => value.json()).then((value) => value.data.non_food);
@@ -109,9 +106,8 @@ async function appendCards(data) {
 	}
 }
 
-async function getCategoryText(event, callback) {
-	const category = event.target.innerHTML.toLowerCase();
-	const promise = await allData();
+async function getCategories(category) {
+  const promise = await allData();
   let data = '';
 	if (category === 'food') {
     data = promise.map((dataCategory) => {
@@ -126,11 +122,27 @@ async function getCategoryText(event, callback) {
     });
   } else {
     data = promise.map((dataCategory) => {
-      
+      const { equipment, treasure, monsters, materials } = dataCategory;
+      if (category === 'equipment') {
+        return equipment;
+      }
+      if (category === 'treasure') {
+        return treasure;
+      }
+      if (category === 'monsters') {
+        return monsters;
+      }
+      if (category === 'materials') {
+        return materials;
+      }
     });
-    console.log(data);
   }
 	appendCards(data);
+}
+
+function getCategoryText(event, callback) {
+	const category = event.target.innerHTML.toLowerCase();
+	getCategories(category);
 }
 
 async function addEventListeners() {
