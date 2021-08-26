@@ -43,20 +43,15 @@ function removeCards() {
 
 function changeClass(event) {
   const card = event.target;
-  card.classList.remove('card');
-  card.classList.add('evidenceCard');
-  const cards = document.querySelectorAll('.card');
-  cards.forEach((card) => card.style.display = 'none');
-
-  card.addEventListener('click', () => {
-    card.classList.remove('evidenceCard');
-    card.classList.add('card');
-    card.addEventListener('click', changeClass);
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card) => {
-      card.style.display = 'flex'
-    });
-  })
+  if (card.className === 'card'){
+	  card.className = 'evidenceCard';
+	  const cards = document.querySelectorAll('.card');
+	  cards.forEach((card) => card.style.display = 'none');
+  } else {
+	card.className = 'card';
+	const cards = document.querySelectorAll('.card');
+	cards.forEach((card) => card.style.display = 'flex');
+  }
 }
 
 async function appendCards(data) {
@@ -69,23 +64,6 @@ async function appendCards(data) {
     card.addEventListener('click', changeClass);
 	}
 }
-
-/* const cards = document.querySelectorAll('.card');
-  cards.forEach((card) => {
-    card.addEventListener('click', function changeClass() {
-      card.classList.remove('card');
-      card.classList.add('evidenceCard');
-      const cards = document.querySelectorAll('.card');
-      cards.forEach((card) => card.style.display = 'none');
-
-      const evidenceCard = document.querySelector('.evidenceCard');
-      evidenceCard.addEventListener('click', () => {
-        evidenceCard.classList.remove('evidenceCard');
-        evidenceCard.classList.add('card');
-        cards.forEach((card) => card.style.display = 'flex');
-      });
-    })
-  }); */
 
 function getCategoryText(event, callback) {
 	const category = event.target.innerHTML.toLowerCase();
