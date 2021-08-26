@@ -9,7 +9,8 @@
 }
 
 body {
-	background-color: #0e5135;
+	/* background-color: #0e5135; */
+	background-image: url('/media/pattern-triforce-2x.png'),linear-gradient(to bottom, #023326 0%, #053335 50%, #0a1928 100%);
 }
 
 #nav-bar {
@@ -27,7 +28,7 @@ body {
 	width: 100%;
 	background-color: #0e5135;
 	padding: 0.5rem;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.575);
 }
 
@@ -41,7 +42,7 @@ body {
 	border-radius: 5%;
 	border: 2px solid #073824;
 	border-radius: 5%;
-	padding: 0.8rem;
+	padding: 0.5rem;
 	min-width: 40px;
 	transition: all ease-in-out 0.15s;
 	text-align: center;
@@ -73,27 +74,43 @@ body {
 
 .hyrule-banner {
 	position: relative;
-	padding-top: 4rem;
+	padding-top: 3rem;
 }
 
-.hyrule-banner h1 {
+.logo-banner {
+	display: flex;
+	justify-content: center;
+}
+
+.logotipo-zelda {
+	position: absolute;
+	z-index: 2;
+	opacity: 80%;
+	top: 40%;
+	max-width: 150px;
+	max-height: 150px;
+	width: auto;
+	height: auto;
+}
+
+/* .hyrule-banner h1 {
 	z-index: 2;
 	position: absolute;
-	top: 50%;
+	top: 10%;
 	left: 0;
 	right: 0;
-	font-size: 60px;
 	width: 100%;
 	padding: 0;
 	margin: 0;
 	text-align: center;
-	color: #0d9263;
-	text-shadow: -1px 0 #d4cd46cc, 0 2px #0e5135, 2px 0 #0e5135, 0 -1px #d4ce46cc;
-	box-shadow: 0px 2px #d4ce46;
-	font-size: 6rem;
+	color: #F4EFE5;
+	text-shadow: -1px 0 #EEC965, 0 2px #053335, 2px 0 #0a1928, 0 -1px #EEC965;
+	box-shadow: 3px 0px 3px 2px #EEC965;
+	font-size: 3rem;
 	letter-spacing: 1rem;
+	opacity: 80%;
 	font-family: zelda;
-}
+} */
 
 #content {
 	display: flex;
@@ -107,7 +124,7 @@ body {
 	margin-right: 10px;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 30%;
+	width: 90%;
 	margin-top: 2%;
 }
 
@@ -116,7 +133,7 @@ body {
 }
 
 .card-img {
-	width: 200px;
+	width: 100px;
 }
 
 .container {
@@ -133,8 +150,8 @@ body {
 	text-align: center;
 	color: white;
 	font-family: zelda;
-	font-size: 2rem;
-	letter-spacing: 1rem;
+	font-size: 1.2rem;
+	letter-spacing: 0.5rem;
 	text-shadow: -1px 0 rgba(0, 0, 0, 0.726), 0 1px rgba(0, 0, 0, 0.726), 1px 0 rgba(0, 0, 0, 0.726), 0 -1px rgba(0, 0, 0, 0.726);
 }
 
@@ -150,39 +167,57 @@ footer {
 	flex-wrap: wrap;
 }
 
-@media ( max-width: 900px) {
+@media ( min-width: 720px) {
 	#nav-bar-container {
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
 	}
 
-	#triforce-img {
+	/* #triforce-img {
 		display: none;
-	}
+	} */
 
 	#nav-bar-container div {
-		padding: 0.5rem;
+		padding: 0.8rem;
 	}
 
 	.hyrule-banner {
-		padding-top: 3rem;
+		padding-top: 4rem;
 	}
 
-	.hyrule-banner h1 {
+	.logotipo-zelda {
+		top: 30%;
+		max-width: 320px;
+		max-height: 320px;
+		width: auto;
+		height: auto;
+	}
+
+	/* .hyrule-banner h1 {
 		top: 60%;
 		font-size: 30px;
 		text-shadow: -1px 0 #0e5135, 0 1px #0e5135, 1px 0 #0e5135, 0 -1px #0e5135;
-	}
+	} */
 
 	.card-img {
-		width: 100px;
+		width: 200px;
 	}
 	
 	.card {
-		width: 90%;
+		width: 30%;
 	}
 
 	.container h3 {
-		font-size: 1.2rem;
-		letter-spacing: 0.5rem;
+		font-size: 2rem;
+		letter-spacing: 1rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.logotipo-zelda {
+		top: 30%;
+		max-width: 500px;
+		max-height: 500px;
+		width: auto;
+		height: auto;
 	}
 }
