@@ -17,6 +17,7 @@ document.addEventListener('wheel', () => {
 	}
 });
 
+<<<<<<< HEAD
 /* async function getCreatures(food = false) {
 async function getCreatures(food = false) {
 	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
@@ -31,6 +32,8 @@ async function getCategoryes(category) {
 	return await fetch(url).then((value) => value.json()).then((value) => value.data);
 } */
 
+=======
+>>>>>>> 9fa05dd2d0bb81a985325a19f7125dd626ab392e
 async function allData() {
 	let data;
 	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
@@ -115,16 +118,33 @@ async function getCategoryText(event) {
 		});
 	}
 	else if (category === 'creatures') {
-		data = promise.map((dataCategory) => {
-			const { creatures } = dataCategory;
-			return creatures.non_food;
-		});
-	} else {
-		data = promise.map((dataCategory) => {
-			const { equipment, materials, monsters, treasure } = dataCategory;
-		});
-	}
+    data = promise.map((dataCategory) => {
+      const {creatures} = dataCategory;
+      return creatures.non_food;
+    });
+  } else {
+    data = promise.map((dataCategory) => {
+      const { equipment, treasure, monsters, materials } = dataCategory;
+      if (category === 'equipment') {
+        return equipment;
+      }
+      if (category === 'treasure') {
+        return treasure;
+      }
+      if (category === 'monsters') {
+        return monsters;
+      }
+      if (category === 'materials') {
+        return materials;
+      }
+    });
+  }
 	appendCards(data);
+}
+
+function getCategoryText(event, callback) {
+	const category = event.target.innerHTML.toLowerCase();
+	getCategories(category);
 }
 
 async function addEventListeners() {
@@ -133,8 +153,3 @@ async function addEventListeners() {
 }
 
 addEventListeners();
-
-// Hofs para os carts
-
-
-
