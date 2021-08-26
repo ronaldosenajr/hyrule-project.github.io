@@ -152,6 +152,8 @@ CARDS SECTION
 	justify-content: center;
 	width: 90%;
 	margin-top: 2%;
+	background-color: #0a192872;
+	border-radius: 5px;
 }
 
 .card:hover {
@@ -159,7 +161,8 @@ CARDS SECTION
 }
 
 .card-img {
-	width: 100px;
+	margin-top: 20px;
+	height: 220px;
 }
 
 .container {
@@ -176,7 +179,7 @@ CARDS SECTION
 	text-align: center;
 	color: white;
 	font-family: zelda;
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 	letter-spacing: 0.5rem;
 	text-shadow: -1px 0 rgba(0, 0, 0, 0.726), 0 1px rgba(0, 0, 0, 0.726), 1px 0 rgba(0, 0, 0, 0.726), 0 -1px rgba(0, 0, 0, 0.726);
 }
