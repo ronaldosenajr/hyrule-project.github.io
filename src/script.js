@@ -32,6 +32,7 @@ async function allData() {
       materials: value.data.materials,
       monsters: value.data.monsters,
       treasure: value.data.treasure,
+      all: [...value.data.creatures.food, ...value.data.creatures.non_food, ...value.data.equipment, ...value.data.materials, ...value.data.monsters, ...value.data.treasure],
     }];
     data = categories;
     return data;
@@ -90,8 +91,10 @@ async function appendCards(data) {
 	}
 }
 
+const datas = allData();
+
 async function getCategories(category) {
-  const promise = await allData();
+  const promise = await datas;
   let data = '';
   data = promise.map((dataCategory) => {
     const { equipment, treasure, monsters, materials, creatures } = dataCategory;
@@ -107,10 +110,10 @@ async function getCategories(category) {
     if (category === 'materials') {
       return materials;
     }
-    if (creatures.food === 'food') {
+    if (category === 'food') {
       return creatures.food;
     }
-    if (creatures.non_food === 'creatures') {
+    if (category === 'creatures') {
       return creatures.non_food;
     }
   });
