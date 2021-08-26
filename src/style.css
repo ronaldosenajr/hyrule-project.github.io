@@ -87,10 +87,33 @@ body {
 	z-index: 2;
 	opacity: 80%;
 	top: 40%;
-	max-width: 150px;
-	max-height: 150px;
+	max-width: 170px;
+	max-height: 170px;
 	width: auto;
 	height: auto;
+}
+
+.saiba-mais-button {
+	top: 85%;
+	padding-top: 3px;
+	position: absolute;
+	z-index: 3;
+	border: 1px solid #F4EFE5;
+	border-radius: 2px;
+	background: #F4EFE5;;
+	font-family: zelda;
+	font-size: 1.1em;
+	opacity: 70%;
+	color: #053320;
+	width: 120px;
+	height: 30px;
+}
+
+.saiba-mais-button:hover {
+	font-size: 1.2em;
+	text-decoration: underline;
+	width: 130px;
+	height: 35px;
 }
 
 #content {
@@ -190,5 +213,22 @@ footer {
 		max-height: 500px;
 		width: auto;
 		height: auto;
+	}
+}
+
+@media (min-width: 1350px) {
+	.saiba-mais-button {
+		font-size: 1.1em;
+		opacity: 70%;
+		color: #053320;
+		width: 150px;
+		height: 40px;
+	}
+	
+	.saiba-mais-button:hover {
+		font-size: 1.2em;
+		text-decoration: underline;
+		width: 160px;
+		height: 45px;
 	}
 }
