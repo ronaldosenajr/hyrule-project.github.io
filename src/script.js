@@ -1,6 +1,7 @@
 const navBtns = document.querySelectorAll('.nav-btn');
 const contentHolder = document.querySelector('#content');
 
+<<<<<<< HEAD
 let calledFromAPI = false;
 
 
@@ -18,6 +19,9 @@ document.addEventListener('wheel', () => {
 });
 
 async function getCreatures(food = false) {
+=======
+/* async function getCreatures(food = false) {
+>>>>>>> 387c124ac84e7b79f79f6a8885992a4d194dc054
 	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
 	if (food === false) {
 		return await fetch(url).then((value) => value.json()).then((value) => value.data.non_food);
@@ -28,6 +32,25 @@ async function getCreatures(food = false) {
 async function getCategoryes(category) {
 	const url = `https://botw-compendium.herokuapp.com/api/v2/category/${category}`
 	return await fetch(url).then((value) => value.json()).then((value) => value.data);
+} */
+
+async function allData() {
+  const allData = 'https://botw-compendium.herokuapp.com/api/v2';
+  await fetch(allData)
+  .then((result) => result.json())
+  .then((value) => {
+    const categories = {
+      creatures: {
+        foodCreatures: value.data.creatures.food,
+        non_foodCreatures: value.data.creatures.non_food,
+      },
+      equipment: value.data.equipment,
+      materials: value.data.materials,
+      monsters: value.data.monsters,
+      treasure: value.data.treasure,
+    }
+    return categories;
+  });
 }
 
 function createTextElements(h3, p, img, data) {
