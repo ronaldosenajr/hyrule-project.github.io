@@ -32,25 +32,25 @@ async function getCategoryes(category) {
 } */
 
 async function allData() {
-  let data;
-  const allData = 'https://botw-compendium.herokuapp.com/api/v2';
-  await fetch(allData)
-  .then((result) => result.json())
-  .then((value) => {
-    const categories = [{
-      creatures: {
-        food: value.data.creatures.food,
-        non_food: value.data.creatures.non_food,
-      },
-      equipment: value.data.equipment,
-      materials: value.data.materials,
-      monsters: value.data.monsters,
-      treasure: value.data.treasure,
-    }];
-    data = categories;
-    return data;
-  });
-  return data;
+	let data;
+	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
+	await fetch(allData)
+		.then((result) => result.json())
+		.then((value) => {
+			const categories = [{
+				creatures: {
+					food: value.data.creatures.food,
+					non_food: value.data.creatures.non_food,
+				},
+				'equipment': value.data.equipment,
+				'materials': value.data.materials,
+				'monsters': value.data.monsters,
+				'treasure': value.data.treasure,
+			}];
+			data = categories;
+			return data;
+		});
+	return data;
 }
 
 function createTextElements(h3, p, img, data) {
@@ -81,16 +81,16 @@ function removeCards() {
 }
 
 function changeClass(event) {
-  const card = event.target;
-  if (card.className === 'card'){
-	  card.className = 'evidenceCard';
-	  const cards = document.querySelectorAll('.card');
-	  cards.forEach((card) => card.style.display = 'none');
-  } else {
-	card.className = 'card';
-	const cards = document.querySelectorAll('.card');
-	cards.forEach((card) => card.style.display = 'flex');
-  }
+	const card = event.target;
+	if (card.className === 'card') {
+		card.className = 'evidenceCard';
+		const cards = document.querySelectorAll('.card');
+		cards.forEach((card) => card.style.display = 'none');
+	} else {
+		card.className = 'card';
+		const cards = document.querySelectorAll('.card');
+		cards.forEach((card) => card.style.display = 'flex');
+	}
 }
 
 async function appendCards(data) {
@@ -100,31 +100,30 @@ async function appendCards(data) {
 	for (let i = 0; i < dataValues.length; i += 1) {
 		const card = CreateCard(dataValues[i]);
 		contentHolder.appendChild(card);
-    card.addEventListener('click', changeClass);
+		card.addEventListener('click', changeClass);
 	}
 }
 
-async function getCategoryText(event, callback) {
+async function getCategoryText(event) {
 	const category = event.target.innerHTML.toLowerCase();
 	const promise = await allData();
-  let data = '';
+	let data = '';
 	if (category === 'food') {
-    data = promise.map((dataCategory) => {
-      const {creatures} = dataCategory;
-      return creatures.food;
-    });
-  }
+		data = promise.map((dataCategory) => {
+			const { creatures } = dataCategory;
+			return creatures.food;
+		});
+	}
 	else if (category === 'creatures') {
-    data = promise.map((dataCategory) => {
-      const {creatures} = dataCategory;
-      return creatures.non_food;
-    });
-  } else {
-    data = promise.map((dataCategory) => {
-      
-    });
-    console.log(data);
-  }
+		data = promise.map((dataCategory) => {
+			const { creatures } = dataCategory;
+			return creatures.non_food;
+		});
+	} else {
+		data = promise.map((dataCategory) => {
+			const { equipment, materials, monsters, treasure } = dataCategory;
+		});
+	}
 	appendCards(data);
 }
 
