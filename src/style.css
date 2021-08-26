@@ -1,17 +1,24 @@
+/* IMPORT FONT ZELDA */
 @font-face {
 	font-family: zelda;
 	src: url("../fonts/Zelda.otf");
 }
 
+/* CSS RESET */
 * {
 	margin: 0;
 	padding: 0;
 }
 
+/* CORPO DA PÁGINA */
 body {
 	/* https://www.w3schools.com/cssref/func_linear-gradient.asp */
 	background-image: url('/media/pattern-triforce-2x.png'),linear-gradient(to bottom, #0a1928 0%, #053335 50%, #023326 100%);
 }
+
+/* 
+NAV SECTION
+*/
 
 #nav-bar {
 	display: flex;
@@ -75,6 +82,10 @@ body {
 	width: 100%;
 }
 
+/* 
+BANNER SECTION
+*/
+
 #hero {
 	position: relative;
 	height: 100%;
@@ -123,6 +134,10 @@ body {
 	height: 28px;
 }
 
+/* 
+CARDS SECTION
+*/
+
 #content {
 	display: flex;
 	justify-content: space-around;
@@ -166,6 +181,10 @@ body {
 	text-shadow: -1px 0 rgba(0, 0, 0, 0.726), 0 1px rgba(0, 0, 0, 0.726), 1px 0 rgba(0, 0, 0, 0.726), 0 -1px rgba(0, 0, 0, 0.726);
 }
 
+/* 
+FOOTER SECTION
+*/
+
 footer {
 	display: flex;
 	background-color: #162329;
@@ -184,6 +203,11 @@ footer p {
 	margin-bottom: 10px;
 }
 
+/* 
+MEDIA QUERY
+*/
+
+/* TELAS PEQUENAS-MEDIAS */
 @media ( min-width: 720px) {
 	#nav-bar-container {
 		flex-wrap: wrap;
@@ -234,6 +258,7 @@ footer p {
 	}
 }
 
+/* TELAS MEDIAS */
 @media (min-width: 1023px) {
 	.logotipo-zelda {
 		top: 20%;
@@ -259,6 +284,7 @@ footer p {
 	}
 }
 
+/* TELAS GRANDES */
 @media (min-width: 1300px) {
 	.saiba-mais-button {
 		top: 70%;
