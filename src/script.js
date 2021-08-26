@@ -26,6 +26,8 @@ async function allData() {
   return data;
 }
 
+const datas = allData()
+
 function createTextElements(h3, p, img, data) {
 	h3.innerHTML = data.name;
 	p.innerHTML = data.description;
@@ -66,18 +68,26 @@ function changeClass(event) {
 	}
 }
 
-async function appendCards(data) {
+async function appendCards(data, createAllcards = false) {
 	removeCards();
-	const promise = await data[0];
-	const dataValues = promise;
-	for (let i = 0; i < dataValues.length; i += 1) {
-		const card = CreateCard(dataValues[i]);
-		contentHolder.appendChild(card);
-		card.addEventListener('click', changeClass);
+	if (createAllcards) {
+		const promise = await data[0];
+		const dataValues = promise.all;
+		for (let i = 0; i < dataValues.length; i += 1) {
+			const card = CreateCard(dataValues[i]);
+			contentHolder.appendChild(card);
+			card.addEventListener('click', changeClass);
+		}
+	} else {
+		const promise = await data[0];
+		const dataValues = promise;
+		for (let i = 0; i < dataValues.length; i += 1) {
+			const card = CreateCard(dataValues[i]);
+			contentHolder.appendChild(card);
+			card.addEventListener('click', changeClass);
+		}
 	}
 }
-
-const datas = allData();
 
 async function getCategories(category) {
   const promise = await datas;
@@ -103,7 +113,7 @@ async function getCategories(category) {
       return creatures.non_food;
     }
   });
-  appendCards(data);
+  appendCards(data, false);
 }
 
 function getCategoryText(event, callback) {
@@ -115,10 +125,10 @@ async function createAllCategories() {
 	if (!calledFromAPI) {
 		calledFromAPI = true;
 		const promise = await allData();
+		const data = promise;
+		appendCards(data, true);
 	}
 }
-
-document.addEventListener('wheel', createAllCategories);
 
 async function addEventListeners() {
 	const category = []
@@ -126,3 +136,7 @@ async function addEventListeners() {
 }
 
 addEventListeners();
+
+window.onload = () => {
+	createAllCategories();
+};
