@@ -93,35 +93,28 @@ async function appendCards(data) {
 async function getCategories(category) {
   const promise = await allData();
   let data = '';
-	if (category === 'food') {
-    data = promise.map((dataCategory) => {
-      const {creatures} = dataCategory;
+  data = promise.map((dataCategory) => {
+    const { equipment, treasure, monsters, materials, creatures } = dataCategory;
+    if (category === 'equipment') {
+      return equipment;
+    }
+    if (category === 'treasure') {
+      return treasure;
+    }
+    if (category === 'monsters') {
+      return monsters;
+    }
+    if (category === 'materials') {
+      return materials;
+    }
+    if (creatures.food === 'food') {
       return creatures.food;
-    });
-  }
-	else if (category === 'creatures') {
-    data = promise.map((dataCategory) => {
-      const {creatures} = dataCategory;
+    }
+    if (creatures.non_food === 'creatures') {
       return creatures.non_food;
-    });
-  } else {
-    data = promise.map((dataCategory) => {
-      const { equipment, treasure, monsters, materials } = dataCategory;
-      if (category === 'equipment') {
-        return equipment;
-      }
-      if (category === 'treasure') {
-        return treasure;
-      }
-      if (category === 'monsters') {
-        return monsters;
-      }
-      if (category === 'materials') {
-        return materials;
-      }
-    });
-  }
-	appendCards(data);
+    }
+  });
+  appendCards(data);
 }
 
 function getCategoryText(event, callback) {
