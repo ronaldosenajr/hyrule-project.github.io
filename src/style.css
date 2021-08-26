@@ -19,22 +19,33 @@ body {
 	position: fixed;
 	z-index: 5;
 	width: 100%;
-	flex-wrap: wrap;
-}
-
-#nav-bar-container {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	background-color: #0e5135;
+	background-color: #F4EFE5;
 	padding: 0.5rem;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.575);
 }
 
 #triforce-img {
 	width: 3rem;
 	align-self: center;
+}
+
+#nav-buttons {
+	display: flex;
+	align-self: center;
+	justify-content: space-around;
+	width: 500px;
+}
+
+.nav-btn {
+	text-decoration: none;
+	color: #0a1928;
+	font-family: zelda;
+	font-size: 20px;
+}
+
+.nav-btn:hover {
+	text-decoration: underline;
 }
 
 #nav-bar-container div {
@@ -64,17 +75,12 @@ body {
 	width: 100%;
 }
 
-.hero {
-	width: 100%;
-}
-
-.hero img {
-	width: 100%;
-}
-
-.hyrule-banner {
+#hero {
 	position: relative;
-	padding-top: 3rem;
+	height: 100%;
+	width: 100%;
+	padding-top: 50px;
+
 }
 
 .logo-banner {
@@ -83,10 +89,12 @@ body {
 }
 
 .logotipo-zelda {
+	display: flex;
+	justify-content: center;
 	position: absolute;
 	z-index: 2;
 	opacity: 80%;
-	top: 40%;
+	top: 30%;
 	max-width: 170px;
 	max-height: 170px;
 	width: auto;
@@ -94,26 +102,25 @@ body {
 }
 
 .saiba-mais-button {
-	top: 85%;
-	padding-top: 3px;
+	top: 82%;
 	position: absolute;
 	z-index: 3;
 	border: 1px solid #F4EFE5;
 	border-radius: 2px;
 	background: #F4EFE5;;
 	font-family: zelda;
-	font-size: 1.1em;
+	font-size: 1em;
 	opacity: 70%;
 	color: #053320;
-	width: 120px;
-	height: 30px;
+	width: 100px;
+	height: 25px;
 }
 
 .saiba-mais-button:hover {
-	font-size: 1.2em;
+	font-size: 1.1em;
 	text-decoration: underline;
-	width: 130px;
-	height: 35px;
+	width: 105px;
+	height: 28px;
 }
 
 #content {
@@ -185,11 +192,26 @@ footer {
 	}
 
 	.logotipo-zelda {
-		top: 30%;
+		top: 25%;
 		max-width: 320px;
 		max-height: 320px;
 		width: auto;
 		height: auto;
+	}
+
+	.saiba-mais-button {
+		font-size: 1.3em;
+		opacity: 70%;
+		color: #053320;
+		width: 150px;
+		height: 40px;
+	}
+	
+	.saiba-mais-button:hover {
+		font-size: 1.5em;
+		text-decoration: underline;
+		width: 160px;
+		height: 45px;
 	}
 
 	.card-img {
@@ -206,18 +228,34 @@ footer {
 	}
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1023px) {
 	.logotipo-zelda {
-		top: 30%;
+		top: 20%;
 		max-width: 500px;
 		max-height: 500px;
 		width: auto;
 		height: auto;
 	}
+
+	.saiba-mais-button {
+		font-size: 1.3em;
+		opacity: 70%;
+		color: #053320;
+		width: 150px;
+		height: 40px;
+	}
+	
+	.saiba-mais-button:hover {
+		font-size: 1.5em;
+		text-decoration: underline;
+		width: 160px;
+		height: 45px;
+	}
 }
 
-@media (min-width: 1350px) {
+@media (min-width: 1300px) {
 	.saiba-mais-button {
+		top: 70%;
 		font-size: 1.1em;
 		opacity: 70%;
 		color: #053320;
