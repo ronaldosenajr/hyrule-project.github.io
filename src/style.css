@@ -9,8 +9,8 @@
 }
 
 body {
-	/* background-color: #0e5135; */
-	background-image: url('/media/pattern-triforce-2x.png'),linear-gradient(to bottom, #023326 0%, #053335 50%, #0a1928 100%);
+	/* https://www.w3schools.com/cssref/func_linear-gradient.asp */
+	background-image: url('/media/pattern-triforce-2x.png'),linear-gradient(to bottom, #0a1928 0%, #053335 50%, #023326 100%);
 }
 
 #nav-bar {
@@ -93,25 +93,6 @@ body {
 	height: auto;
 }
 
-/* .hyrule-banner h1 {
-	z-index: 2;
-	position: absolute;
-	top: 10%;
-	left: 0;
-	right: 0;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	color: #F4EFE5;
-	text-shadow: -1px 0 #EEC965, 0 2px #053335, 2px 0 #0a1928, 0 -1px #EEC965;
-	box-shadow: 3px 0px 3px 2px #EEC965;
-	font-size: 3rem;
-	letter-spacing: 1rem;
-	opacity: 80%;
-	font-family: zelda;
-} */
-
 #content {
 	display: flex;
 	justify-content: space-around;
@@ -172,10 +153,6 @@ footer {
 		flex-wrap: wrap;
 	}
 
-	/* #triforce-img {
-		display: none;
-	} */
-
 	#nav-bar-container div {
 		padding: 0.8rem;
 	}
@@ -191,12 +168,6 @@ footer {
 		width: auto;
 		height: auto;
 	}
-
-	/* .hyrule-banner h1 {
-		top: 60%;
-		font-size: 30px;
-		text-shadow: -1px 0 #0e5135, 0 1px #0e5135, 1px 0 #0e5135, 0 -1px #0e5135;
-	} */
 
 	.card-img {
 		width: 200px;
