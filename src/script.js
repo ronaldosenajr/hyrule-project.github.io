@@ -17,13 +17,8 @@ document.addEventListener('wheel', () => {
 	}
 });
 
-<<<<<<< HEAD
-// async function getCreatures(food = false) {
-/* async function getCreatures(food = false) {
-=======
 /* async function getCreatures(food = false) {
 async function getCreatures(food = false) {
->>>>>>> 10c3f09edabbb62009c034d186b0e42974ba4483
 	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
 	if (food === false) {
 		return await fetch(url).then((value) => value.json()).then((value) => value.data.non_food);
