@@ -17,8 +17,13 @@ document.addEventListener('wheel', () => {
 	}
 });
 
+<<<<<<< HEAD
 // async function getCreatures(food = false) {
 /* async function getCreatures(food = false) {
+=======
+/* async function getCreatures(food = false) {
+async function getCreatures(food = false) {
+>>>>>>> 10c3f09edabbb62009c034d186b0e42974ba4483
 	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
 	if (food === false) {
 		return await fetch(url).then((value) => value.json()).then((value) => value.data.non_food);
@@ -32,22 +37,25 @@ async function getCategoryes(category) {
 } */
 
 async function allData() {
+  let data;
   const allData = 'https://botw-compendium.herokuapp.com/api/v2';
   await fetch(allData)
   .then((result) => result.json())
   .then((value) => {
-    const categories = {
+    const categories = [{
       creatures: {
-        foodCreatures: value.data.creatures.food,
-        non_foodCreatures: value.data.creatures.non_food,
+        food: value.data.creatures.food,
+        non_food: value.data.creatures.non_food,
       },
       equipment: value.data.equipment,
       materials: value.data.materials,
       monsters: value.data.monsters,
       treasure: value.data.treasure,
-    }
-    return categories;
+    }];
+    data = categories;
+    return data;
   });
+  return data;
 }
 
 function createTextElements(h3, p, img, data) {
@@ -92,8 +100,8 @@ function changeClass(event) {
 
 async function appendCards(data) {
 	removeCards();
-	const a = await data;
-	const dataValues = Object.values(a);
+	const promise = await data[0];
+	const dataValues = promise;
 	for (let i = 0; i < dataValues.length; i += 1) {
 		const card = CreateCard(dataValues[i]);
 		contentHolder.appendChild(card);
@@ -101,11 +109,15 @@ async function appendCards(data) {
 	}
 }
 
-function getCategoryText(event, callback) {
+async function getCategoryText(event, callback) {
 	const category = event.target.innerHTML.toLowerCase();
-	let data = ''
+	const promise = await allData();
+  let data = '';
 	if (category === 'food') {
-		data = getCreatures(true);
+    data = promise.map((dataCategory) => {
+      const {creatures} = dataCategory;
+      return creatures.food;
+    });
 	} else if (category === 'creatures') {
 		data = getCreatures(false);
 	} else {
