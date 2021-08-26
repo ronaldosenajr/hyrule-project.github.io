@@ -113,11 +113,18 @@ async function getCategoryText(event, callback) {
       const {creatures} = dataCategory;
       return creatures.food;
     });
-	} else if (category === 'creatures') {
-		data = getCreatures(false);
-	} else {
-		data = getCategoryes(category);
-	}
+  }
+	else if (category === 'creatures') {
+    data = promise.map((dataCategory) => {
+      const {creatures} = dataCategory;
+      return creatures.non_food;
+    });
+  } else {
+    data = promise.map((dataCategory) => {
+      
+    });
+    console.log(data);
+  }
 	appendCards(data);
 }
 
