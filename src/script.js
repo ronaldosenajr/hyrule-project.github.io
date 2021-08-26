@@ -17,22 +17,6 @@ document.addEventListener('wheel', () => {
 	}
 });
 
-// async function getCreatures(food = false) {
-/* async function getCreatures(food = false) {
-/* async function getCreatures(food = false) {
-async function getCreatures(food = false) {
-	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
-	if (food === false) {
-		return await fetch(url).then((value) => value.json()).then((value) => value.data.non_food);
-	}
-	return await fetch(url).then((value) => value.json()).then((value) => value.data.food);
-}
-
-async function getCategoryes(category) {
-	const url = `https://botw-compendium.herokuapp.com/api/v2/category/${category}`
-	return await fetch(url).then((value) => value.json()).then((value) => value.data);
-} */
-
 async function allData() {
   let data;
   const allData = 'https://botw-compendium.herokuapp.com/api/v2';
@@ -151,8 +135,3 @@ async function addEventListeners() {
 }
 
 addEventListeners();
-
-// Hofs para os carts
-
-
-
