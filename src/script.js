@@ -3,37 +3,6 @@ const contentHolder = document.querySelector('#content');
 
 let calledFromAPI = false;
 
-
-document.addEventListener('wheel', () => {
-	if (!calledFromAPI) {
-		console.log('chamou a api');
-		calledFromAPI = true;
-		document.removeEventListener('wheel', () => {
-			if (!calledFromAPI) {
-				console.log('chamou a api');
-				calledFromAPI = true;
-			}
-		})
-	}
-});
-
-<<<<<<< HEAD
-/* async function getCreatures(food = false) {
-async function getCreatures(food = false) {
-	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
-	if (food === false) {
-		return await fetch(url).then((value) => value.json()).then((value) => value.data.non_food);
-	}
-	return await fetch(url).then((value) => value.json()).then((value) => value.data.food);
-}
-
-async function getCategoryes(category) {
-	const url = `https://botw-compendium.herokuapp.com/api/v2/category/${category}`
-	return await fetch(url).then((value) => value.json()).then((value) => value.data);
-} */
-
-=======
->>>>>>> 9fa05dd2d0bb81a985325a19f7125dd626ab392e
 async function allData() {
 	let data;
 	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
@@ -107,7 +76,7 @@ async function appendCards(data) {
 	}
 }
 
-async function getCategoryText(event) {
+async function getCategories(event) {
 	const category = event.target.innerHTML.toLowerCase();
 	const promise = await allData();
 	let data = '';
@@ -118,27 +87,27 @@ async function getCategoryText(event) {
 		});
 	}
 	else if (category === 'creatures') {
-    data = promise.map((dataCategory) => {
-      const {creatures} = dataCategory;
-      return creatures.non_food;
-    });
-  } else {
-    data = promise.map((dataCategory) => {
-      const { equipment, treasure, monsters, materials } = dataCategory;
-      if (category === 'equipment') {
-        return equipment;
-      }
-      if (category === 'treasure') {
-        return treasure;
-      }
-      if (category === 'monsters') {
-        return monsters;
-      }
-      if (category === 'materials') {
-        return materials;
-      }
-    });
-  }
+		data = promise.map((dataCategory) => {
+			const { creatures } = dataCategory;
+			return creatures.non_food;
+		});
+	} else {
+		data = promise.map((dataCategory) => {
+			const { equipment, treasure, monsters, materials } = dataCategory;
+			if (category === 'equipment') {
+				return equipment;
+			}
+			if (category === 'treasure') {
+				return treasure;
+			}
+			if (category === 'monsters') {
+				return monsters;
+			}
+			if (category === 'materials') {
+				return materials;
+			}
+		});
+	}
 	appendCards(data);
 }
 
@@ -146,6 +115,15 @@ function getCategoryText(event, callback) {
 	const category = event.target.innerHTML.toLowerCase();
 	getCategories(category);
 }
+
+async function createAllCategories() {
+	if (!calledFromAPI) {
+		calledFromAPI = true;
+		const promise = await allData();
+	}
+}
+
+document.addEventListener('wheel', createAllCategories);
 
 async function addEventListeners() {
 	const category = []
