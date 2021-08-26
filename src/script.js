@@ -4,25 +4,26 @@ const contentHolder = document.querySelector('#content');
 let calledFromAPI = false;
 
 async function allData() {
-	let data;
-	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
-	await fetch(allData)
-		.then((result) => result.json())
-		.then((value) => {
-			const categories = [{
-				creatures: {
-					food: value.data.creatures.food,
-					non_food: value.data.creatures.non_food,
-				},
-				'equipment': value.data.equipment,
-				'materials': value.data.materials,
-				'monsters': value.data.monsters,
-				'treasure': value.data.treasure,
-			}];
-			data = categories;
-			return data;
-		});
-	return data;
+  let data;
+  const allData = 'https://botw-compendium.herokuapp.com/api/v2';
+  await fetch(allData)
+  .then((result) => result.json())
+  .then((value) => {
+    const categories = [{
+      creatures: {
+        food: value.data.creatures.food,
+        non_food: value.data.creatures.non_food,
+      },
+      equipment: value.data.equipment,
+      materials: value.data.materials,
+      monsters: value.data.monsters,
+      treasure: value.data.treasure,
+      all: [...value.data.creatures.food, ...value.data.creatures.non_food, ...value.data.equipment, ...value.data.materials, ...value.data.monsters, ...value.data.treasure],
+    }];
+    data = categories;
+    return data;
+  });
+  return data;
 }
 
 function createTextElements(h3, p, img, data) {
@@ -76,39 +77,33 @@ async function appendCards(data) {
 	}
 }
 
-async function getCategories(event) {
-	const category = event.target.innerHTML.toLowerCase();
-	const promise = await allData();
-	let data = '';
-	if (category === 'food') {
-		data = promise.map((dataCategory) => {
-			const { creatures } = dataCategory;
-			return creatures.food;
-		});
-	}
-	else if (category === 'creatures') {
-		data = promise.map((dataCategory) => {
-			const { creatures } = dataCategory;
-			return creatures.non_food;
-		});
-	} else {
-		data = promise.map((dataCategory) => {
-			const { equipment, treasure, monsters, materials } = dataCategory;
-			if (category === 'equipment') {
-				return equipment;
-			}
-			if (category === 'treasure') {
-				return treasure;
-			}
-			if (category === 'monsters') {
-				return monsters;
-			}
-			if (category === 'materials') {
-				return materials;
-			}
-		});
-	}
-	appendCards(data);
+const datas = allData();
+
+async function getCategories(category) {
+  const promise = await datas;
+  let data = '';
+  data = promise.map((dataCategory) => {
+    const { equipment, treasure, monsters, materials, creatures } = dataCategory;
+    if (category === 'equipment') {
+      return equipment;
+    }
+    if (category === 'treasure') {
+      return treasure;
+    }
+    if (category === 'monsters') {
+      return monsters;
+    }
+    if (category === 'materials') {
+      return materials;
+    }
+    if (category === 'food') {
+      return creatures.food;
+    }
+    if (category === 'creatures') {
+      return creatures.non_food;
+    }
+  });
+  appendCards(data);
 }
 
 function getCategoryText(event, callback) {
