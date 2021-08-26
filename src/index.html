@@ -9,36 +9,39 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <div id="nav-bar-container">
-			<a href="#hero">
-				<img src="https://i.ibb.co/LrnrmhH/pngegg.png" alt="triforce.png" id="triforce-img">
-			</a>
+        <div>
+            <a href="#hero">
+            <img src="/media/Triforce_Artwork.png" alt="triforce.png" id="triforce-img">
+        </a>
+        </div>
+        <div id="nav-buttons">
             <a href="#hero" class="nav-btn">
                 <div id="creatures-btn">Creatures</div>
-            </a>
-            <a href="#hero" class="nav-btn">
-                <div id="food-btn">Food</div>
             </a>
             <a href="#hero" class="nav-btn">
                 <div id="items-btn">Equipment</div>
             </a>
             <a href="#hero" class="nav-btn">
+                <div id="food-btn">Food</div>
+            </a>
+            <a href="#hero" class="nav-btn">
+                <div id="monsters-btn">Materials</div>
+            </a>
+            <a href="#hero" class="nav-btn">
                 <div id="monsters-btn">Monsters</div>
             </a>
+            <a href="#hero" class="nav-btn">
+                <div id="items-btn">Treasure</div>
+            </a>
         </div>
-        <!-- Player de música incorporado do site cincopa: https://www.cincopa.com/ -->
-        <div id="cincopa_6e8fd5">...</div><script type="text/javascript">
-            var cpo = []; cpo["_object"] ="cincopa_6e8fd5"; cpo["_fid"] = "AkGAd2urotKy";
-            var _cpmp = _cpmp || []; _cpmp.push(cpo);
-            (function() { var cp = document.createElement("script"); cp.type = "text/javascript";
-            cp.async = true; cp.src = "https://rtcdn.cincopa.com/libasync.js";
-            var c = document.getElementsByTagName("script")[0];
-            c.parentNode.insertBefore(cp, c); })(); </script>
     </nav>
-    <div class="hero" id="hero">
-        <div class="hyrule-banner">
-            <h1>Hyrule Compedium</h1>
-            <img src="https://i.ibb.co/YXSX5rV/the-legend-of-zelda-breath-of-the-wild-arte-digital-papel-de-parede-2560x1080-14.jpg" alt="" srcset="">
+    <div id="hero">
+        <div class="video-banner">
+            <video class="video" width="100%" src="/media/zelda-trailer.mov" autoplay muted loop></video>
+        </div>
+        <div class="logo-banner">
+            <img class="logotipo-zelda" src="/media/zelda-botw-logo.png" alt="logo-zelda">
+            <button class="saiba-mais-button">Let's Begin</button>
         </div>
     </div>
     <section id="content">
@@ -51,7 +54,22 @@
             </div>
     </section>
 	<footer>
-		Todas as imagens e informações pertecem a Nintendo. Site desenvolvido com base na API "Hyrule Compedium API" e criado por Ronaldo Junior.
+        <p>
+            Todas as imagens e informações pertecem a Nintendo. Site desenvolvido com base na API "Hyrule Compendium API" e criado por Ronaldo Junior.
+        </p>
+        <div>
+            <!-- Player de música incorporado do site cincopa: https://www.cincopa.com/ -->
+    <div id="cincopa_6e8fd5">...</div>
+    <script type="text/javascript">
+        var cpo = []; cpo["_object"] = "cincopa_6e8fd5"; cpo["_fid"] = "AkGAd2urotKy";
+        var _cpmp = _cpmp || []; _cpmp.push(cpo);
+        (function () {
+            var cp = document.createElement("script"); cp.type = "text/javascript";
+            cp.async = true; cp.src = "https://rtcdn.cincopa.com/libasync.js";
+            var c = document.getElementsByTagName("script")[0];
+            c.parentNode.insertBefore(cp, c);
+        })();</script>
+        </div>
 	</footer>
     <script src="./script.js"></script>
 </body>

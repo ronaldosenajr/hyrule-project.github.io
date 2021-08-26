@@ -1,16 +1,24 @@
+/* IMPORT FONT ZELDA */
 @font-face {
 	font-family: zelda;
 	src: url("../fonts/Zelda.otf");
 }
 
+/* CSS RESET */
 * {
 	margin: 0;
 	padding: 0;
 }
 
+/* CORPO DA PÁGINA */
 body {
-	background-color: #0e5135;
+	/* https://www.w3schools.com/cssref/func_linear-gradient.asp */
+	background-image: url('/media/pattern-triforce-2x.png'),linear-gradient(to bottom, #0a1928 0%, #053335 50%, #023326 100%);
 }
+
+/* 
+NAV SECTION
+*/
 
 #nav-bar {
 	display: flex;
@@ -18,14 +26,7 @@ body {
 	position: fixed;
 	z-index: 5;
 	width: 100%;
-	flex-wrap: wrap;
-}
-
-#nav-bar-container {
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	background-color: #0e5135;
+	background-color: #0a1928;
 	padding: 0.5rem;
 	flex-wrap: wrap;
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.575);
@@ -36,12 +37,30 @@ body {
 	align-self: center;
 }
 
+#nav-buttons {
+	display: flex;
+	align-self: center;
+	justify-content: space-around;
+	width: 600px;
+}
+
+.nav-btn {
+	text-decoration: none;
+	color: #F4EFE5;
+	font-family: zelda;
+	font-size: 20px;
+}
+
+.nav-btn:hover {
+	text-decoration: underline;
+}
+
 #nav-bar-container div {
 	background-color: #0d9263;
 	border-radius: 5%;
 	border: 2px solid #073824;
 	border-radius: 5%;
-	padding: 0.8rem;
+	padding: 0.5rem;
 	min-width: 40px;
 	transition: all ease-in-out 0.15s;
 	text-align: center;
@@ -63,37 +82,61 @@ body {
 	width: 100%;
 }
 
-.hero {
-	width: 100%;
-}
+/* 
+BANNER SECTION
+*/
 
-.hero img {
-	width: 100%;
-}
-
-.hyrule-banner {
+#hero {
 	position: relative;
-	padding-top: 4rem;
+	height: 100%;
+	width: 100%;
+	padding-top: 50px;
+
 }
 
-.hyrule-banner h1 {
-	z-index: 2;
-	position: absolute;
-	top: 50%;
-	left: 0;
-	right: 0;
-	font-size: 60px;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	color: #0d9263;
-	text-shadow: -1px 0 #d4cd46cc, 0 2px #0e5135, 2px 0 #0e5135, 0 -1px #d4ce46cc;
-	box-shadow: 0px 2px #d4ce46;
-	font-size: 6rem;
-	letter-spacing: 1rem;
-	font-family: zelda;
+.logo-banner {
+	display: flex;
+	justify-content: center;
 }
+
+.logotipo-zelda {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	z-index: 2;
+	opacity: 80%;
+	top: 30%;
+	max-width: 170px;
+	max-height: 170px;
+	width: auto;
+	height: auto;
+}
+
+.saiba-mais-button {
+	top: 82%;
+	position: absolute;
+	z-index: 3;
+	border: 1px solid #F4EFE5;
+	border-radius: 2px;
+	background: #F4EFE5;;
+	font-family: zelda;
+	font-size: 1em;
+	opacity: 70%;
+	color: #053320;
+	width: 100px;
+	height: 25px;
+}
+
+.saiba-mais-button:hover {
+	font-size: 1.1em;
+	text-decoration: underline;
+	width: 105px;
+	height: 28px;
+}
+
+/* 
+CARDS SECTION
+*/
 
 #content {
 	display: flex;
@@ -107,8 +150,10 @@ body {
 	margin-right: 10px;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 30%;
+	width: 90%;
 	margin-top: 2%;
+	background-color: #0a192872;
+	border-radius: 5px;
 }
 
 .evidenceCard {
@@ -126,7 +171,8 @@ body {
 }
 
 .card-img {
-	width: 200px;
+	margin-top: 20px;
+	height: 220px;
 }
 
 .container {
@@ -143,56 +189,129 @@ body {
 	text-align: center;
 	color: white;
 	font-family: zelda;
-	font-size: 2rem;
-	letter-spacing: 1rem;
+	font-size: 1.6rem;
+	letter-spacing: 0.5rem;
 	text-shadow: -1px 0 rgba(0, 0, 0, 0.726), 0 1px rgba(0, 0, 0, 0.726), 1px 0 rgba(0, 0, 0, 0.726), 0 -1px rgba(0, 0, 0, 0.726);
 }
 
+/* 
+FOOTER SECTION
+*/
+
 footer {
 	display: flex;
-	margin-top: 1rem;
-	padding: 1rem;
-	background-color: #053320;
+	background-color: #162329;
+	padding-top: 8px;
+	margin-top: 50px;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	color: #d4ce46;
+	color: #F4EFE5;
 	flex-wrap: wrap;
+	height: 100px;
 }
 
-@media ( max-width: 900px) {
-	#nav-bar-container {
-		flex-wrap: nowrap;
-	}
+footer p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
-	#triforce-img {
-		display: none;
+/* 
+MEDIA QUERY
+*/
+
+/* TELAS PEQUENAS-MEDIAS */
+@media ( min-width: 720px) {
+	#nav-bar-container {
+		flex-wrap: wrap;
 	}
 
 	#nav-bar-container div {
-		padding: 0.5rem;
+		padding: 0.8rem;
 	}
 
 	.hyrule-banner {
-		padding-top: 3rem;
+		padding-top: 4rem;
 	}
 
-	.hyrule-banner h1 {
-		top: 60%;
-		font-size: 30px;
-		text-shadow: -1px 0 #0e5135, 0 1px #0e5135, 1px 0 #0e5135, 0 -1px #0e5135;
+	.logotipo-zelda {
+		top: 25%;
+		max-width: 320px;
+		max-height: 320px;
+		width: auto;
+		height: auto;
+	}
+
+	.saiba-mais-button {
+		font-size: 1.3em;
+		opacity: 70%;
+		color: #053320;
+		width: 150px;
+		height: 40px;
+	}
+	
+	.saiba-mais-button:hover {
+		font-size: 1.5em;
+		text-decoration: underline;
+		width: 160px;
+		height: 45px;
 	}
 
 	.card-img {
-		width: 100px;
+		width: 200px;
 	}
 	
 	.card {
-		width: 90%;
+		width: 30%;
 	}
 
 	.container h3 {
-		font-size: 1.2rem;
-		letter-spacing: 0.5rem;
+		font-size: 2rem;
+		letter-spacing: 1rem;
+	}
+}
+
+/* TELAS MEDIAS */
+@media (min-width: 1023px) {
+	.logotipo-zelda {
+		top: 20%;
+		max-width: 500px;
+		max-height: 500px;
+		width: auto;
+		height: auto;
+	}
+
+	.saiba-mais-button {
+		font-size: 1.3em;
+		opacity: 70%;
+		color: #053320;
+		width: 150px;
+		height: 40px;
+	}
+	
+	.saiba-mais-button:hover {
+		font-size: 1.5em;
+		text-decoration: underline;
+		width: 160px;
+		height: 45px;
+	}
+}
+
+/* TELAS GRANDES */
+@media (min-width: 1300px) {
+	.saiba-mais-button {
+		top: 70%;
+		font-size: 1.1em;
+		opacity: 70%;
+		color: #053320;
+		width: 150px;
+		height: 40px;
+	}
+	
+	.saiba-mais-button:hover {
+		font-size: 1.2em;
+		text-decoration: underline;
+		width: 160px;
+		height: 45px;
 	}
 }
