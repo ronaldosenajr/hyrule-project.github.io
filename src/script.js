@@ -18,7 +18,10 @@ async function allData() {
       materials: value.data.materials,
       monsters: value.data.monsters,
       treasure: value.data.treasure,
-      all: [...value.data.creatures.food, ...value.data.creatures.non_food, ...value.data.equipment, ...value.data.materials, ...value.data.monsters, ...value.data.treasure],
+      all: [...value.data.creatures.food, 
+		...value.data.creatures.non_food, 
+		...value.data.equipment, ...value.data.materials,
+		...value.data.monsters, ...value.data.treasure],
     }];
     data = categories;
     return data;
