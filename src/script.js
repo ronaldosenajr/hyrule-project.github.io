@@ -1,7 +1,6 @@
 const navBtns = document.querySelectorAll('.nav-btn');
 const contentHolder = document.querySelector('#content');
 
-<<<<<<< HEAD
 let calledFromAPI = false;
 
 
@@ -18,10 +17,8 @@ document.addEventListener('wheel', () => {
 	}
 });
 
-async function getCreatures(food = false) {
-=======
+// async function getCreatures(food = false) {
 /* async function getCreatures(food = false) {
->>>>>>> 387c124ac84e7b79f79f6a8885992a4d194dc054
 	const url = `https://botw-compendium.herokuapp.com/api/v2/category/creatures`
 	if (food === false) {
 		return await fetch(url).then((value) => value.json()).then((value) => value.data.non_food);
