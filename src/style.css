@@ -34,7 +34,7 @@ body {
 	display: flex;
 	align-self: center;
 	justify-content: space-around;
-	width: 500px;
+	width: 600px;
 }
 
 .nav-btn {
@@ -168,14 +168,20 @@ body {
 
 footer {
 	display: flex;
-	margin-top: 1rem;
-	padding: 1rem;
-	background-color: #053320;
+	background-color: #162329;
+	padding-top: 8px;
+	margin-top: 50px;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	color: #d4ce46;
+	color: #F4EFE5;
 	flex-wrap: wrap;
+	height: 100px;
+}
+
+footer p {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 @media ( min-width: 720px) {
