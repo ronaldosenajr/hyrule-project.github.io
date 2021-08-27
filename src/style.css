@@ -217,19 +217,18 @@ FOOTER SECTION
 footer {
 	display: flex;
 	background-color: #162329;
-	margin: 100px 10px 50px 10px;
 	text-align: justify;
 	font-size: 12px;
 	align-items: center;
 	justify-content: center;
 	color: #F4EFE5;
 	flex-wrap: wrap;
-	height: 10px;
+	height: 70px;
+	margin-top: 200px;
 }
 
 footer p {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px 10px 10px 10px;
 }
 
 /* 
@@ -322,16 +321,12 @@ MEDIA QUERY
 	}
 
 	footer {
-		margin: 500px 10px 50px 10px;
+		margin-top: 500px;
 	}
 	
 	footer p {
-		text-align: center;
-		font-size: 1.2em;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin: 10px 10px 10px 10px;
 	}
-}
 
 /* TELAS MEDIAS */
 @media (min-width: 1023px) {
@@ -408,19 +403,27 @@ MEDIA QUERY
 	}
 
 	footer {
-		margin: 700px 10px 50px 10px;
+		margin-top: 700px;
 	}
 	
 	footer p {
 		text-align: center;
 		font-size: 1.5em;
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin: 10px 10px 10px 10px;
 	}
 }
 
 /* TELAS GRANDES */
 @media (min-width: 1300px) {	
+	#triforce-img {
+		width: 3.5em;
+	}
+
+	.text-nav {
+		font-size: 20px;
+		margin-left: 450px;
+	}
+
 	.saiba-mais-button {
 		font-size: 1.3em;
 		opacity: 70%;
@@ -463,11 +466,54 @@ MEDIA QUERY
 	}
 
 	.container h3 {
-		font-size: 2.5em;
+		font-size: 1.6em;
 		letter-spacing: 1rem;
 	}
 
 	.container p {
+		font-size: 1.2em;
+	}
+
+	footer {
+		margin-top: 700px;
+	}
+	
+	footer p {
+		text-align: center;
+		font-size: 1.5em;
+		margin: 10px 10px 10px 10px;
+	}
+}
+
+@media (min-width: 1900px) {
+	.card-img {
+		width: 350px;
+	}
+	
+	.card {
+		width: 30%;
+	}
+
+	.evidenceCard img {
+		width: 500px;
+	}
+
+	.evidenceCard .container h3 {
+		margin-top: 30px;
+		font-size: 2.3em;
+	}
+
+	.evidenceCard .container p {
+		margin-top: 30px;
 		font-size: 2em;
+	}
+
+	.container h3 {
+		font-size: 2.3em;
+		letter-spacing: 1rem;
+	}
+
+	.container p {
+		font-size: 1.8em;
 	}
 }
