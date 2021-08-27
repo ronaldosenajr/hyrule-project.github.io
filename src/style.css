@@ -181,7 +181,7 @@ CARDS SECTION
 
 .card-img {
 	margin-top: 20px;
-	height: 220px;
+	width: 150px;
 }
 
 .container {
@@ -198,7 +198,7 @@ CARDS SECTION
 	text-align: center;
 	color: white;
 	font-family: zelda;
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 	letter-spacing: 0.5rem;
 	text-shadow: -1px 0 rgba(0, 0, 0, 0.726), 0 1px rgba(0, 0, 0, 0.726), 1px 0 rgba(0, 0, 0, 0.726), 0 -1px rgba(0, 0, 0, 0.726);
 }
