@@ -92,25 +92,14 @@ async function getCategories(category, apend) {
   const promise = await datas;
   let data = '';
   data = promise.map((dataCategory) => {
-    const { equipment, treasure, monsters, materials, creatures } = dataCategory;
-    if (category === 'equipment') {
-      return dataCategory['category'];
-    }
-    if (category === 'treasure') {
-      return treasure;
-    }
-    if (category === 'monsters') {
-      return monsters;
-    }
-    if (category === 'materials') {
-      return materials;
-    }
+    const { creatures } = dataCategory;
     if (category === 'food') {
       return creatures.food;
-    }
-    if (category === 'creatures') {
+    } else if (category === 'creatures') {
       return creatures.non_food;
-    }
+    } else {
+		return dataCategory[category];
+	}
   });
   apend(data, false);
 }
