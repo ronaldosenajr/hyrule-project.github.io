@@ -46,51 +46,6 @@ NAV SECTION
 	align-self: center;
 }
 
-#nav-buttons {
-	display: flex;
-	align-self: center;
-	justify-content: space-around;
-	width: 600px;
-}
-
-.nav-btn {
-	text-decoration: none;
-	color: #F4EFE5;
-	font-family: zelda;
-	font-size: 20px;
-}
-
-.nav-btn:hover {
-	text-decoration: underline;
-}
-
-#nav-bar-container div {
-	background-color: #0d9263;
-	border-radius: 5%;
-	border: 2px solid #073824;
-	border-radius: 5%;
-	padding: 0.5rem;
-	min-width: 40px;
-	transition: all ease-in-out 0.15s;
-	text-align: center;
-}
-
-#nav-bar-container div:hover {
-	cursor: pointer;
-	border: none;
-	box-shadow: 2px 2px #d4ce46, -2px -2px #d4ce46;
-	color: #053320;
-}
-
-#nav-bar-container a {
-	justify-content: space-around;
-	max-width: 100px;
-	text-decoration: none;
-	color: #d4ce46;
-	font-weight: bolder;
-	width: 100%;
-}
-
 /* 
 BANNER SECTION
 */
@@ -141,6 +96,40 @@ BANNER SECTION
 	text-decoration: underline;
 	width: 105px;
 	height: 28px;
+}
+
+/*
+FILTER SECTION
+*/
+
+#filter-buttons {
+	display: flex;
+	flex-direction: column;
+}
+
+#nav-buttons {
+	margin-top: 20px;
+	margin-left: 2%;
+	margin-right: 2%;
+	display: flex;
+	align-self: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.nav-btn {
+	text-decoration: none;
+	color: #F4EFE5;
+	font-family: zelda;
+	font-size: 20px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nav-btn:hover {
+	text-decoration: underline;
 }
 
 /* 
