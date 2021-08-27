@@ -1,16 +1,25 @@
-/* IMPORT FONT ZELDA */
+/*
+IMPORT FONT ZELDA
+*/
+
 @font-face {
 	font-family: zelda;
 	src: url("../fonts/Zelda.otf");
 }
 
-/* CSS RESET */
+/*
+CSS RESET
+*/
+
 * {
 	margin: 0;
 	padding: 0;
 }
 
-/* CORPO DA PÁGINA */
+/*
+CORPO DA PÁGINA
+*/
+
 body {
 	/* https://www.w3schools.com/cssref/func_linear-gradient.asp */
 	background-image: url('/media/pattern-triforce-2x.png'),linear-gradient(to bottom, #0a1928 0%, #053335 50%, #023326 100%);
