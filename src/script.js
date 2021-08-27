@@ -1,7 +1,6 @@
 const navBtns = document.querySelectorAll('.nav-btn');
 const contentHolder = document.querySelector('#content');
 const lestSearchBtn = document.querySelector('.saiba-mais-button');
-const fetch = require("node-fetch");
 
 let calledFromAPI = false;
 
@@ -27,7 +26,7 @@ async function allData() {
 		});
 }
 
-const datas = allData()
+const datas = allData();
 
 function createTextElements(h3, p, img, data) {
 	h3.innerHTML = data.name;
@@ -124,5 +123,7 @@ async function addEventListeners() {
 
 addEventListeners();
 
+const sum = (a, b) => a + b;
 
-module.exports = { allData, datas, getCategories, appendCards };
+
+module.exports = { allData, datas, getCategories, appendCards, sum };
