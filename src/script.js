@@ -5,7 +5,6 @@ const lestSearchBtn = document.querySelector('.saiba-mais-button');
 let calledFromAPI = false;
 
 async function allData() {
-	let data;
 	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
 	return await fetch(allData)
 		.then((result) => result.json())
@@ -21,12 +20,11 @@ async function allData() {
 				treasure: value.data.treasure,
 				all: [...value.data.creatures.food, ...value.data.creatures.non_food, ...value.data.equipment, ...value.data.materials, ...value.data.monsters, ...value.data.treasure],
 			}];
-			data = categories;
-			return data;
+			return categories;
 		});
 }
 
-const datas = allData()
+const datas = allData();
 
 function createTextElements(h3, p, img, data) {
 	h3.innerHTML = data.name;
@@ -89,7 +87,7 @@ async function appendCards(data, createAllcards = false) {
 	}
 }
 
-async function getCategories(category, apend) {
+async function getCategories(category, callback) {
 	const promise = await datas;
 	let data = '';
 	data = promise.map((dataCategory) => {
@@ -102,10 +100,10 @@ async function getCategories(category, apend) {
 			return dataCategory[category];
 		}
 	});
-	apend(data, false);
+	callback(data, false);
 }
 
-function getCategoryText(event) {
+async function getCategoryText(event) {
 	const category = event.target.innerHTML.toLowerCase();
 	getCategories(category, appendCards);
 }
@@ -123,5 +121,9 @@ async function addEventListeners() {
 
 addEventListeners();
 
+function testFunction(a, b) {
+  return a + b;
+}
 
-module.exports = { allData };
+
+module.exports = { testFunction };
