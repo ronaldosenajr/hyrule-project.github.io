@@ -2,11 +2,22 @@
  * @jest-environment jsdom
  */
 
-const allData = require('../src/script');
-jest.mock('../src/script');
+const api = require('../src/script');
+jest.mock('node-fetch');
 
-describe('This test verifies the function that calls the API Hyrule Compendium', () => {
-  allData = jest.fn().mockResolvedValue({
+descibre('This test ')
+
+
+
+
+
+
+
+
+
+
+/* describe('This test verifies the function that calls the API Hyrule Compendium', () => {
+  api.allData = jest.fn().mockResolvedValue({
     creatures: {
       food: 'Armored Porgy',
       non_food: 'Blue Sparrow',
@@ -18,11 +29,21 @@ describe('This test verifies the function that calls the API Hyrule Compendium',
     all: ['Armored Porgy', 'Blue Sparrow', 'Windcleaver', 'Swift Carrot', 'Silver Lizalfos', 'Treasure Chest'],
   })
 
-  it('should be the APIs response', async () => (
-    allData().then(() => {
-      expect(allData.creatures.food).toEqual('Armored Porgy');
-      expect(allData.creatures.non_food).toEqual('Blue Sparrow');
-      expect(allData.equipment).toEqual('Windcleaver');
+  it('should be the APIs response', async () => {
+    expect.assertions(1);
+
+    fetch.mockImplementation(async () => {
+      return {
+        json: async () => {
+          return {
+            equipment: 'Windcleaver',
+          }
+        }
+      }
     })
-  ));
-});
+
+    const data = await api.allData;
+
+    expect(data).toEqual({ equipment, treasure });
+  }
+)}); */

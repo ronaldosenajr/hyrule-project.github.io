@@ -6,7 +6,7 @@ let calledFromAPI = false;
 async function allData() {
   let data;
   const allData = 'https://botw-compendium.herokuapp.com/api/v2';
-  await fetch(allData)
+  return await fetch(allData)
   .then((result) => result.json())
   .then((value) => {
     const categories = [{
@@ -23,7 +23,6 @@ async function allData() {
     data = categories;
     return data;
   });
-  return data;
 }
 
 const datas = allData()
@@ -89,7 +88,7 @@ async function appendCards(data, createAllcards = false) {
 	}
 }
 
-async function getCategories(category) {
+async function getCategories(category, apend) {
   const promise = await datas;
   let data = '';
   data = promise.map((dataCategory) => {
@@ -113,12 +112,12 @@ async function getCategories(category) {
       return creatures.non_food;
     }
   });
-  appendCards(data, false);
+  apend(data, false);
 }
 
-function getCategoryText(event, callback) {
+function getCategoryText(event) {
 	const category = event.target.innerHTML.toLowerCase();
-	getCategories(category);
+	getCategories(category, appendCards);
 }
 
 async function createAllCategories() {
@@ -131,7 +130,6 @@ async function createAllCategories() {
 }
 
 async function addEventListeners() {
-	const category = []
 	navBtns.forEach((button) => button.addEventListener('click', getCategoryText));
 }
 
@@ -141,4 +139,4 @@ window.onload = () => {
 	createAllCategories();
 };
 
-module.exports = {allData};
+module.exports = { allData };
