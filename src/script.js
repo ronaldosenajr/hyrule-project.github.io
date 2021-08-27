@@ -141,4 +141,4 @@ window.onload = () => {
 	createAllCategories();
 };
 
-module.exports = allData;
+module.exports = {allData};

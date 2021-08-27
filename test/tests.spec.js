@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const allData = require('../src/script');
 jest.mock('../src/script');
 
