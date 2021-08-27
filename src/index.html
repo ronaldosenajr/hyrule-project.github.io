@@ -8,13 +8,32 @@
     <title>Hyrule</title>
 </head>
 <body>
+    <!-- NAV BAR SECTION -->
     <nav id="nav-bar">
         <div>
-            <a href="#hero">
+            <a href="#hero" class="brand-logo">
             <img src="/media/Triforce_Artwork.png" alt="triforce.png" id="triforce-img">
         </a>
         </div>
+        <div class="text-nav">
+            <h2>Hyrule Compendium</h2>
+        </div>
+    </nav>
+    <!-- BANNER SECTION -->
+    <div id="hero">
+        <video class="video-banner" width="100%" src="/media/zelda-trailer.mov" autoplay muted loop></video>
+        <div class="logo-banner">
+            <img class="logotipo-zelda" src="/media/zelda-botw-logo.png" alt="logo-zelda">
+            <button class="saiba-mais-button">Let's Search</button>
+        </div>
+    </div>
+    <!-- FILTER SECTION -->
+    <section id="filter-buttons">
+        <h2>Filter</h2>
         <div id="nav-buttons">
+            <a href="#hero" class="nav-btn">
+                <div id="all-btn">All</div>
+            </a>
             <a href="#hero" class="nav-btn">
                 <div id="creatures-btn">Creatures</div>
             </a>
@@ -25,25 +44,17 @@
                 <div id="food-btn">Food</div>
             </a>
             <a href="#hero" class="nav-btn">
-                <div id="monsters-btn">Materials</div>
+                <div id="materials-btn">Materials</div>
             </a>
             <a href="#hero" class="nav-btn">
                 <div id="monsters-btn">Monsters</div>
             </a>
             <a href="#hero" class="nav-btn">
-                <div id="items-btn">Treasure</div>
+                <div id="treasure-btn">Treasure</div>
             </a>
         </div>
-    </nav>
-    <div id="hero">
-        <div class="video-banner">
-            <video class="video" width="100%" src="/media/zelda-trailer.mov" autoplay muted loop></video>
-        </div>
-        <div class="logo-banner">
-            <img class="logotipo-zelda" src="/media/zelda-botw-logo.png" alt="logo-zelda">
-            <button class="saiba-mais-button">Let's Begin</button>
-        </div>
-    </div>
+    </section>
+    <!-- CARDS SECTION -->
     <section id="content">
             <div class="card">
                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" class="card-img">
@@ -53,24 +64,27 @@
                 </div>
             </div>
     </section>
+    <!-- FOOTER SECTION -->
 	<footer>
         <p>
             Todas as imagens e informações pertecem a Nintendo. Site desenvolvido com base na API "Hyrule Compendium API" e criado por Ronaldo Junior.
         </p>
-        <div>
-            <!-- Player de música incorporado do site cincopa: https://www.cincopa.com/ -->
-    <div id="cincopa_6e8fd5">...</div>
-    <script type="text/javascript">
-        var cpo = []; cpo["_object"] = "cincopa_6e8fd5"; cpo["_fid"] = "AkGAd2urotKy";
-        var _cpmp = _cpmp || []; _cpmp.push(cpo);
-        (function () {
-            var cp = document.createElement("script"); cp.type = "text/javascript";
-            cp.async = true; cp.src = "https://rtcdn.cincopa.com/libasync.js";
-            var c = document.getElementsByTagName("script")[0];
-            c.parentNode.insertBefore(cp, c);
-        })();</script>
-        </div>
 	</footer>
+    <!-- PLAYER SECTION -->
+    <div id="player">
+        <!-- Player de música incorporado do site cincopa: https://www.cincopa.com/ -->
+        <div id="cincopa_6e8fd5">...</div>
+        <script type="text/javascript">
+            var cpo = []; cpo["_object"] = "cincopa_6e8fd5"; cpo["_fid"] = "AkGAd2urotKy";
+            var _cpmp = _cpmp || []; _cpmp.push(cpo);
+            (function () {
+                var cp = document.createElement("script"); cp.type = "text/javascript";
+                cp.async = true; cp.src = "https://rtcdn.cincopa.com/libasync.js";
+                var c = document.getElementsByTagName("script")[0];
+                c.parentNode.insertBefore(cp, c);
+            })();</script>
+    </div>
+    <!-- SCRIPT SECTION -->
     <script src="./script.js"></script>
 </body>
 </html>
