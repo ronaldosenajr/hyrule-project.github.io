@@ -5,6 +5,7 @@ const lestSearchBtn = document.querySelector('.saiba-mais-button');
 let calledFromAPI = false;
 
 async function allData() {
+ testsWriting
 	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
 	return await fetch(allData)
 		.then((result) => result.json())
@@ -54,7 +55,15 @@ function removeCards() {
 }
 
 function changeClass(event) {
-	const card = event.target;
+	let card = event.target;
+	if (card.nodeName === 'H3' || card.nodeName === 'P') {
+		const newCard = card.parentElement.parentElement;
+		card = newCard;
+	}
+	if (card.nodeName === 'IMG') {
+		const newCard = card.parentElement;
+		card = newCard;
+	}
 	if (card.className === 'card') {
 		card.className = 'evidenceCard';
 		const cards = document.querySelectorAll('.card');
