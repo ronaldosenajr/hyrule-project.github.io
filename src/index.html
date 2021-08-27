@@ -15,12 +15,13 @@
             <img src="/media/Triforce_Artwork.png" alt="triforce.png" id="triforce-img">
         </a>
         </div>
+        <div class="text-nav">
+            <h2>Hyrule Compendium</h2>
+        </div>
     </nav>
     <!-- BANNER SECTION -->
     <div id="hero">
-        <div class="video-banner">
-            <video class="video" width="100%" src="/media/zelda-trailer.mov" autoplay muted loop></video>
-        </div>
+        <video class="video-banner" width="100%" src="/media/zelda-trailer.mov" autoplay muted loop></video>
         <div class="logo-banner">
             <img class="logotipo-zelda" src="/media/zelda-botw-logo.png" alt="logo-zelda">
             <button class="saiba-mais-button">Let's Search</button>
@@ -28,6 +29,7 @@
     </div>
     <!-- FILTER SECTION -->
     <section id="filter-buttons">
+        <h2>Filter</h2>
         <div id="nav-buttons">
             <a href="#hero" class="nav-btn">
                 <div id="all-btn">All</div>
@@ -67,20 +69,21 @@
         <p>
             Todas as imagens e informações pertecem a Nintendo. Site desenvolvido com base na API "Hyrule Compendium API" e criado por Ronaldo Junior.
         </p>
-        <div>
-            <!-- Player de música incorporado do site cincopa: https://www.cincopa.com/ -->
-    <div id="cincopa_6e8fd5">...</div>
-    <script type="text/javascript">
-        var cpo = []; cpo["_object"] = "cincopa_6e8fd5"; cpo["_fid"] = "AkGAd2urotKy";
-        var _cpmp = _cpmp || []; _cpmp.push(cpo);
-        (function () {
-            var cp = document.createElement("script"); cp.type = "text/javascript";
-            cp.async = true; cp.src = "https://rtcdn.cincopa.com/libasync.js";
-            var c = document.getElementsByTagName("script")[0];
-            c.parentNode.insertBefore(cp, c);
-        })();</script>
-        </div>
 	</footer>
+    <!-- PLAYER SECTION -->
+    <div id="player">
+        <!-- Player de música incorporado do site cincopa: https://www.cincopa.com/ -->
+        <div id="cincopa_6e8fd5">...</div>
+        <script type="text/javascript">
+            var cpo = []; cpo["_object"] = "cincopa_6e8fd5"; cpo["_fid"] = "AkGAd2urotKy";
+            var _cpmp = _cpmp || []; _cpmp.push(cpo);
+            (function () {
+                var cp = document.createElement("script"); cp.type = "text/javascript";
+                cp.async = true; cp.src = "https://rtcdn.cincopa.com/libasync.js";
+                var c = document.getElementsByTagName("script")[0];
+                c.parentNode.insertBefore(cp, c);
+            })();</script>
+    </div>
     <!-- SCRIPT SECTION -->
     <script src="./script.js"></script>
 </body>

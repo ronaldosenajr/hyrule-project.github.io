@@ -31,7 +31,7 @@ NAV SECTION
 
 #nav-bar {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	position: fixed;
 	z-index: 5;
 	width: 100%;
@@ -40,11 +40,19 @@ NAV SECTION
 	box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.575);
 }
 
+.text-nav {
+	display: flex;
+	color: #F4EFE5;
+	font-family: zelda;
+	font-weight: 100;
+	font-size: 12px;
+	align-items: center;
+}
+
 #triforce-img {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	width: 2rem;
-	align-self: center;
 }
 
 /* 
@@ -53,10 +61,8 @@ BANNER SECTION
 
 #hero {
 	position: relative;
-	height: 100%;
 	width: 100%;
 	padding-top: 50px;
-
 }
 
 .logo-banner {
@@ -106,10 +112,20 @@ FILTER SECTION
 #filter-buttons {
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 15px;
+}
+
+#filter-buttons h2 {
+	display: flex;
+	justify-content: center;
+	color: #F4EFE5;
+	font-family: zelda;
+	font-weight: 100;
+	margin-top: 15px;
 }
 
 #nav-buttons {
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-left: 2%;
 	margin-right: 2%;
 	display: flex;
@@ -156,13 +172,14 @@ CARDS SECTION
 }
 
 .evidenceCard {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 	display: flex;
-	margin-right: 10px;
 	flex-wrap: wrap;
 	justify-content: center;
-  width: 30%;
+	margin-right: 10px;
 	margin-top: 7%;
+	width: 90%;
+	background-color: #0a1928d0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 .card:hover {
@@ -200,14 +217,14 @@ FOOTER SECTION
 footer {
 	display: flex;
 	background-color: #162329;
-	padding-top: 8px;
-	margin-top: 50px;
-	text-align: center;
+	margin: 100px 10px 50px 10px;
+	text-align: justify;
+	font-size: 12px;
 	align-items: center;
 	justify-content: center;
 	color: #F4EFE5;
 	flex-wrap: wrap;
-	height: 100px;
+	height: 10px;
 }
 
 footer p {
@@ -221,6 +238,15 @@ MEDIA QUERY
 
 /* TELAS PEQUENAS-MEDIAS */
 @media ( min-width: 720px) {
+	#triforce-img {
+		width: 2.5em;
+	}
+
+	.text-nav {
+		font-size: 16px;
+		margin-left: 300px;
+	}
+
 	#nav-bar-container {
 		flex-wrap: wrap;
 	}
@@ -255,23 +281,69 @@ MEDIA QUERY
 		width: 160px;
 		height: 45px;
 	}
+	
+	#filter-buttons h2 {
+		font-size: 1.5em;
+	}
+	
+	.nav-btn {
+		font-size: 1.2em;
+	}
 
 	.card-img {
 		width: 200px;
 	}
 	
 	.card {
-		width: 30%;
+		width: 45%;
+	}
+
+	.evidenceCard img {
+		width: 350px;
+	}
+
+	.evidenceCard .container h3 {
+		margin-top: 30px;
+		font-size: 1.8em;
+	}
+
+	.evidenceCard .container p {
+		margin-top: 30px;
+		font-size: 1.5em;
 	}
 
 	.container h3 {
-		font-size: 2rem;
+		font-size: 1.5em;
 		letter-spacing: 1rem;
+	}
+
+	.container p {
+		font-size: 1.2em;
+	}
+
+	footer {
+		margin: 500px 10px 50px 10px;
+	}
+	
+	footer p {
+		text-align: center;
+		font-size: 1.2em;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 }
 
 /* TELAS MEDIAS */
 @media (min-width: 1023px) {
+	#triforce-img {
+		width: 3.5em;
+	}
+
+	.text-nav {
+		font-size: 25px;
+		margin-left: 450px;
+	}
+
 	.logotipo-zelda {
 		top: 20%;
 		max-width: 500px;
@@ -294,23 +366,108 @@ MEDIA QUERY
 		width: 160px;
 		height: 45px;
 	}
+
+	#filter-buttons h2 {
+		margin-top: 50px;
+		font-size: 2.2em;
+	}
+	
+	.nav-btn {
+		font-size: 1.7em;
+	}
+
+	.card-img {
+		width: 200px;
+	}
+	
+	.card {
+		width: 40%;
+	}
+
+	.evidenceCard img {
+		width: 500px;
+	}
+
+	.evidenceCard .container h3 {
+		margin-top: 30px;
+		font-size: 2.3em;
+	}
+
+	.evidenceCard .container p {
+		margin-top: 30px;
+		font-size: 2em;
+	}
+
+	.container h3 {
+		font-size: 1.8em;
+		letter-spacing: 1rem;
+	}
+
+	.container p {
+		font-size: 1.5em;
+	}
+
+	footer {
+		margin: 700px 10px 50px 10px;
+	}
+	
+	footer p {
+		text-align: center;
+		font-size: 1.5em;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 }
 
 /* TELAS GRANDES */
-@media (min-width: 1300px) {
+@media (min-width: 1300px) {	
 	.saiba-mais-button {
-		top: 70%;
-		font-size: 1.1em;
+		font-size: 1.3em;
 		opacity: 70%;
 		color: #053320;
-		width: 150px;
-		height: 40px;
+		width: 180px;
+		height: 50px;
 	}
 	
 	.saiba-mais-button:hover {
-		font-size: 1.2em;
+		font-size: 1.8em;
 		text-decoration: underline;
-		width: 160px;
-		height: 45px;
+		width: 190px;
+		height: 55px;
+	}
+	
+	.nav-btn {
+		font-size: 2em;
+	}
+
+	.card-img {
+		width: 250px;
+	}
+	
+	.card {
+		width: 25%;
+	}
+
+	.evidenceCard img {
+		width: 500px;
+	}
+
+	.evidenceCard .container h3 {
+		margin-top: 30px;
+		font-size: 2.3em;
+	}
+
+	.evidenceCard .container p {
+		margin-top: 30px;
+		font-size: 2em;
+	}
+
+	.container h3 {
+		font-size: 2.5em;
+		letter-spacing: 1rem;
+	}
+
+	.container p {
+		font-size: 2em;
 	}
 }
