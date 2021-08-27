@@ -95,7 +95,7 @@ async function getCategories(category) {
   data = promise.map((dataCategory) => {
     const { equipment, treasure, monsters, materials, creatures } = dataCategory;
     if (category === 'equipment') {
-      return equipment;
+      return dataCategory['category'];
     }
     if (category === 'treasure') {
       return treasure;
@@ -116,7 +116,7 @@ async function getCategories(category) {
   appendCards(data, false);
 }
 
-function getCategoryText(event, callback) {
+function getCategoryText(event) {
 	const category = event.target.innerHTML.toLowerCase();
 	getCategories(category);
 }
@@ -131,7 +131,6 @@ async function createAllCategories() {
 }
 
 async function addEventListeners() {
-	const category = []
 	navBtns.forEach((button) => button.addEventListener('click', getCategoryText));
 }
 
