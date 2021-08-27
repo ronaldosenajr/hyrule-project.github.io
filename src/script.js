@@ -1,28 +1,29 @@
 const navBtns = document.querySelectorAll('.nav-btn');
 const contentHolder = document.querySelector('#content');
+const lestSearchBtn = document.querySelector('.saiba-mais-button');
 
 let calledFromAPI = false;
 
 async function allData() {
-  let data;
-  const allData = 'https://botw-compendium.herokuapp.com/api/v2';
-  return await fetch(allData)
-  .then((result) => result.json())
-  .then((value) => {
-    const categories = [{
-      creatures: {
-        food: value.data.creatures.food,
-        non_food: value.data.creatures.non_food,
-      },
-      equipment: value.data.equipment,
-      materials: value.data.materials,
-      monsters: value.data.monsters,
-      treasure: value.data.treasure,
-      all: [...value.data.creatures.food, ...value.data.creatures.non_food, ...value.data.equipment, ...value.data.materials, ...value.data.monsters, ...value.data.treasure],
-    }];
-    data = categories;
-    return data;
-  });
+	let data;
+	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
+	return await fetch(allData)
+		.then((result) => result.json())
+		.then((value) => {
+			const categories = [{
+				creatures: {
+					food: value.data.creatures.food,
+					non_food: value.data.creatures.non_food,
+				},
+				equipment: value.data.equipment,
+				materials: value.data.materials,
+				monsters: value.data.monsters,
+				treasure: value.data.treasure,
+				all: [...value.data.creatures.food, ...value.data.creatures.non_food, ...value.data.equipment, ...value.data.materials, ...value.data.monsters, ...value.data.treasure],
+			}];
+			data = categories;
+			return data;
+		});
 }
 
 const datas = allData()
@@ -89,19 +90,19 @@ async function appendCards(data, createAllcards = false) {
 }
 
 async function getCategories(category, apend) {
-  const promise = await datas;
-  let data = '';
-  data = promise.map((dataCategory) => {
-    const { creatures } = dataCategory;
-    if (category === 'food') {
-      return creatures.food;
-    } else if (category === 'creatures') {
-      return creatures.non_food;
-    } else {
-		return dataCategory[category];
-	}
-  });
-  apend(data, false);
+	const promise = await datas;
+	let data = '';
+	data = promise.map((dataCategory) => {
+		const { creatures } = dataCategory;
+		if (category === 'food') {
+			return creatures.food;
+		} else if (category === 'creatures') {
+			return creatures.non_food;
+		} else {
+			return dataCategory[category];
+		}
+	});
+	apend(data, false);
 }
 
 function getCategoryText(event) {
@@ -110,22 +111,17 @@ function getCategoryText(event) {
 }
 
 async function createAllCategories() {
-	if (!calledFromAPI) {
-		calledFromAPI = true;
-		const promise = await allData();
-		const data = promise;
-		appendCards(data, true);
-	}
+	const promise = await datas;
+	const data = promise;
+	appendCards(data, true);
 }
 
 async function addEventListeners() {
 	navBtns.forEach((button) => button.addEventListener('click', getCategoryText));
+	lestSearchBtn.addEventListener('click', createAllCategories);
 }
 
 addEventListeners();
 
-window.onload = () => {
-	createAllCategories();
-};
 
 module.exports = { allData };
