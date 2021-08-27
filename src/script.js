@@ -140,3 +140,5 @@ addEventListeners();
 window.onload = () => {
 	createAllCategories();
 };
+
+module.exports = allData;

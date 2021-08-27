@@ -5,9 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "@types/jest": "^27.0.1",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "jsdom": "^16.7.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
