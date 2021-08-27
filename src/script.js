@@ -2,10 +2,7 @@ const navBtns = document.querySelectorAll('.nav-btn');
 const contentHolder = document.querySelector('#content');
 const lestSearchBtn = document.querySelector('.saiba-mais-button');
 
-let calledFromAPI = false;
-
 async function allData() {
- testsWriting
 	const allData = 'https://botw-compendium.herokuapp.com/api/v2';
 	return await fetch(allData)
 		.then((result) => result.json())
@@ -129,8 +126,3 @@ async function addEventListeners() {
 }
 
 addEventListeners();
-
-const sum = (a, b) => a + b;
-
-
-module.exports = { allData, datas, getCategories, appendCards, sum };
