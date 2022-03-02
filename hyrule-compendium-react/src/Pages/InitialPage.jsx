@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Card from '../Components/Card';
 import zeldaTrailer from '../media/zelda-trailer.mov';
 import zeldaLogo from '../media/zelda-botw-logo.png';
@@ -10,6 +10,8 @@ export default function InitialPage() {
   const [dataToDisplay, setDataToDisplay] = useState([]);
   const [loading, setLoading] = useState(true);
   const [canShowCards, setCanShowCards] = useState(false);
+
+  const myRef = useRef(null);
 
   const getData = async () => {
     const url = 'https://botw-compendium.herokuapp.com/api/v2';
@@ -32,10 +34,11 @@ export default function InitialPage() {
 
   const handleClick = async () => {
     if (!allData.all) {
-      setFilterValue('all');
-      await getData();
+      getData();
     }
+    setFilterValue('all');
     setCanShowCards(true);
+    myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const setFilterDisplay = (name) => {
@@ -44,6 +47,7 @@ export default function InitialPage() {
     }
     setFilterValue(name);
     setCanShowCards(true);
+    myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
@@ -73,64 +77,60 @@ export default function InitialPage() {
         </div>
       </div>
       <section id="filter-buttons">
-        <h2>Filter</h2>
+        <h2>Filters</h2>
         <div id="nav-buttons">
-          <a
-            href="#content"
+          <button
+            type="button"
             className="nav-btn"
             onClick={ () => setFilterDisplay('all') }
           >
             <div id="all-btn">All</div>
-          </a>
-          <a
-            href="#content"
+          </button>
+          <button
+            type="button"
             className="nav-btn"
             onClick={ () => setFilterDisplay('creatures') }
           >
             <div id="creatures-btn">Creatures</div>
-          </a>
-          <a
-            href="#content"
+          </button>
+          <button
+            type="button"
             className="nav-btn"
             onClick={ () => setFilterDisplay('equipment') }
           >
             <div id="items-btn">Equipment</div>
-          </a>
-          <a
-            href="#content"
+          </button>
+          <button
+            type="button"
             className="nav-btn"
             onClick={ () => setFilterDisplay('food') }
           >
             <div id="food-btn">Food</div>
-          </a>
-          <a
-            href="#content"
+          </button>
+          <button
+            type="button"
             className="nav-btn"
             onClick={ () => setFilterDisplay('materials') }
           >
             <div id="materials-btn">Materials</div>
-          </a>
-          <a
-            href="#content"
+          </button>
+          <button
+            type="button"
             className="nav-btn"
             onClick={ () => setFilterDisplay('monsters') }
           >
             <div id="monsters-btn">Monsters</div>
-          </a>
-          <a
-            href="#content"
+          </button>
+          <button
+            type="button"
             className="nav-btn"
             onClick={ () => setFilterDisplay('treasure') }
           >
             <div id="treasure-btn">Treasure</div>
-          </a>
+          </button>
         </div>
       </section>
-      <section id="content">
-        {
-          (canShowCards && (dataToDisplay.map((data) => (
-            <Card content={ data } key={ data.name } />))))
-        }
+      <section id="content" ref={ myRef }>
         {
           (canShowCards && loading
         && (
@@ -138,6 +138,10 @@ export default function InitialPage() {
             <img className="loader" src={ triforcePng } alt="zelda triforce" />
             <h3>Loading...</h3>
           </div>))
+        }
+        {
+          (canShowCards && (dataToDisplay.map((data) => (
+            <Card content={ data } key={ data.name } />))))
         }
       </section>
     </main>

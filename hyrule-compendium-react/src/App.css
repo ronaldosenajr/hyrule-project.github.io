@@ -137,6 +137,8 @@ FILTER SECTION
 .nav-btn {
 	text-decoration: none;
 	color: #F4EFE5;
+	background-color: #ffffff00;
+	border: 0px ;
 	font-family: zelda;
 	font-size: 1.1em;
 	margin-right: 10px;
@@ -147,6 +149,40 @@ FILTER SECTION
 
 .nav-btn:hover {
 	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*
+LOADER SECTION
+*/
+
+.loader-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 50vh;
+}
+
+.loader-section h3 {
+	color: #F4EFE5;
+	font-family: zelda;
+	font-size: 1.5em;
+	letter-spacing: 5px;
+	text-align: center;
+	margin-top: 20%;
+}
+
+.loader {
+	animation: is-rotating 1s infinite;
+	height: 100px;
+	width: 100px;
+}
+
+@keyframes is-rotating {
+	to {
+		transform: rotate(1turn);
+	}
 }
 
 /* 
@@ -157,35 +193,7 @@ CARDS SECTION
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-}
-
-.loader-section {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: 50vh;
-}
-
-.loader {
-	animation: is-rotating 1s infinite;
-	height: 100px;
-	width: 100px;
-}
-
-.loader-section h3 {
-	color: #F4EFE5;
-	font-family: zelda;
-	font-size: 1.5em;
-	letter-spacing: 5px;
-	text-align: center;
-}
-
-
-@keyframes is-rotating {
-	to {
-		transform: rotate(1turn);
-	}
+	min-height: 500px;
 }
 
 .card {
