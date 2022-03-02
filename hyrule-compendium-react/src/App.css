@@ -206,6 +206,7 @@ CARDS SECTION
 	margin-top: 2%;
 	background-color: #0a192872;
 	border-radius: 5px;
+  border-color: rgba(229,184,54, 0.5);
 }
 
 .evidenceCard {
