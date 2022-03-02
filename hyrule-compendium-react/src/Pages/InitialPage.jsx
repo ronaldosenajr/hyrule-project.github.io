@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Card from '../Components/Card';
 import zeldaTrailer from '../media/zelda-trailer.mov';
 import triforcePng from '../media/zelda-botw-logo.png';
@@ -10,13 +10,20 @@ export default function InitialPage() {
   const getData = async () => {
     const url = 'https://botw-compendium.herokuapp.com/api/v2';
     const result = await fetch(url).then((data) => data.json());
-    setAllData(result.data);
-    setLoading(false);
+
+    setAllData({ ...result.data,
+      all: [...result.data.creatures.food, ...result.data.creatures.non_food,
+        ...result.data.equipment, ...result.data.materials,
+        ...result.data.monsters, ...result.data.treasure] });
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  const handleClick = async () => {
+    if (!allData.all) {
+      await getData();
+      setLoading(false);
+    }
+    setLoading(false);
+  };
 
   return (
     <main>
@@ -35,15 +42,21 @@ export default function InitialPage() {
             src={ triforcePng }
             alt="logo-zelda"
           />
-          <button type="button" className="saiba-mais-button">Lets Search</button>
+          <button
+            type="button"
+            className="saiba-mais-button"
+            onClick={ handleClick }
+          >
+            Lets Search
+          </button>
         </div>
       </div>
-      <div id="content">
+      <section id="content">
         {
-          (!loading && (allData.creatures.food.map((data) => (
+          (!loading && (allData.all.map((data) => (
             <Card content={ data } key={ data.name } />))))
         }
-      </div>
+      </section>
     </main>
   );
 }
