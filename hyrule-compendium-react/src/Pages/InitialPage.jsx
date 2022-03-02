@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Card from '../Components/Card';
 
 export default function InitialPage() {
   const [allData, setAllData] = useState({});
@@ -13,22 +14,13 @@ export default function InitialPage() {
 
   useEffect(() => {
     getData();
-    console.log(allData);
   }, []);
 
   return (
-    <div>
-      InitialPage
+    <div id="content">
       {
-        (!loading && (allData.creatures.food.map((value) => (
-          <div key={ value.id }>
-            <div style={ { backgroundColor: 'red', marginBottom: '10px' } }>
-              {' '}
-              Name:
-              {' '}
-              {value.name}
-            </div>
-          </div>))))
+        (!loading && (allData.creatures.food.map((data) => (
+          <Card content={ data } key={ data.name } />))))
       }
     </div>
   );
