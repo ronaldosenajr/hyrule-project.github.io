@@ -159,6 +159,35 @@ CARDS SECTION
 	flex-wrap: wrap;
 }
 
+.loader-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 50vh;
+}
+
+.loader {
+	animation: is-rotating 1s infinite;
+	height: 100px;
+	width: 100px;
+}
+
+.loader-section h3 {
+	color: #F4EFE5;
+	font-family: zelda;
+	font-size: 1.5em;
+	letter-spacing: 5px;
+	text-align: center;
+}
+
+
+@keyframes is-rotating {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 	display: flex;

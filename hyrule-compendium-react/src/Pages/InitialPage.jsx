@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../Components/Card';
 import zeldaTrailer from '../media/zelda-trailer.mov';
-import triforcePng from '../media/zelda-botw-logo.png';
+import zeldaLogo from '../media/zelda-botw-logo.png';
+import triforcePng from '../media/Triforce_Artwork.png';
 
 export default function InitialPage() {
   const [allData, setAllData] = useState({});
@@ -27,7 +28,7 @@ export default function InitialPage() {
     if (!loading) {
       setDataToDisplay([...allData[filterValue]]);
     }
-  }, [loading, filterValue]);
+  }, [loading, filterValue, allData]);
 
   const handleClick = async () => {
     if (!allData.all) {
@@ -59,7 +60,7 @@ export default function InitialPage() {
         <div className="logo-banner">
           <img
             className="logotipo-zelda"
-            src={ triforcePng }
+            src={ zeldaLogo }
             alt="logo-zelda"
           />
           <button
@@ -129,6 +130,14 @@ export default function InitialPage() {
         {
           (canShowCards && (dataToDisplay.map((data) => (
             <Card content={ data } key={ data.name } />))))
+        }
+        {
+          (canShowCards && loading
+        && (
+          <div className="loader-section">
+            <img className="loader" src={ triforcePng } alt="zelda triforce" />
+            <h3>Loading...</h3>
+          </div>))
         }
       </section>
     </main>
