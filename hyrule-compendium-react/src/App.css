@@ -215,9 +215,19 @@ CARDS SECTION
 	justify-content: center;
 	margin-right: 10px;
 	margin-top: 7%;
+	margin-bottom: 5%;
 	width: 90%;
 	background-color: #0a1928d0;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.more-content {
+	width: 100%;
+	margin-top: 2%;
+}
+
+.more-content p {
+	text-align: start;
 }
 
 .card:hover {
@@ -227,6 +237,11 @@ CARDS SECTION
 .card-img {
 	margin-top: 20px;
 	width: 150px;
+}
+
+.evidenceCard .card-img {
+	width: 100px;
+	align-self: flex-start;
 }
 
 .container {

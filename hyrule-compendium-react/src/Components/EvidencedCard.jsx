@@ -11,7 +11,6 @@ export default function EvidencedCard({ content, handleClick }) {
   const keys = Object.keys(content);
   const filteredKeys = keys.filter((value) => value !== 'id'
 && value !== 'description' && value !== 'name' && value !== 'image');
-  console.log(filteredKeys);
 
   return (
     <button
@@ -20,20 +19,21 @@ export default function EvidencedCard({ content, handleClick }) {
       className="evidenceCard"
       onClick={ onClicked }
     >
-      <img src={ image } alt="showing the object" />
+      <img src={ image } alt="showing the object" className="card-img" />
       <div className="container">
         <h3>{ name }</h3>
         <p>{ description }</p>
-        <ul>
+        <div className="more-content">
           {
             filteredKeys.map((value) => (
-              <li
+              <p
                 key={ content[value] }
               >
-                {`${value}: ${content[value]}`}
-              </li>))
+                {`${value.charAt(0).toUpperCase() + value.slice(1)}: ${content[value]}`}
+                {' '}
+              </p>))
           }
-        </ul>
+        </div>
       </div>
     </button>
   );

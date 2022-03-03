@@ -15,7 +15,7 @@ export default function Card({ content, handleClick }) {
       className="card"
       onClick={ onClicked }
     >
-      <img src={ image } alt="showing the object" />
+      <img src={ image } alt="showing the object" className="card-img" />
       <div className="container">
         <h3>{ name }</h3>
         <p>{ description }</p>
