@@ -3,6 +3,7 @@ import Card from '../Components/Card';
 import zeldaTrailer from '../media/zelda-trailer.mov';
 import zeldaLogo from '../media/zelda-botw-logo.png';
 import triforcePng from '../media/Triforce_Artwork.png';
+import EvidencedCard from '../Components/EvidencedCard';
 
 export default function InitialPage() {
   const [allData, setAllData] = useState({});
@@ -10,6 +11,7 @@ export default function InitialPage() {
   const [dataToDisplay, setDataToDisplay] = useState([]);
   const [loading, setLoading] = useState(true);
   const [canShowCards, setCanShowCards] = useState(false);
+  const [cardSelected, setCardSelected] = useState(false);
 
   const myRef = useRef(null);
 
@@ -39,6 +41,17 @@ export default function InitialPage() {
     setFilterValue('all');
     setCanShowCards(true);
     myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const onCardClicked = (id) => {
+    setCardSelected(!cardSelected);
+    setCanShowCards(!canShowCards);
+    const cardValue = allData.all.find((value) => value.id === id);
+    setDataToDisplay([cardValue]);
+    if (cardSelected && !canShowCards) {
+      setDataToDisplay([...allData[filterValue]]);
+      console.log('chamou dentro do if');
+    }
   };
 
   const setFilterDisplay = (name) => {
@@ -140,8 +153,22 @@ export default function InitialPage() {
           </div>))
         }
         {
-          (canShowCards && (dataToDisplay.map((data) => (
-            <Card content={ data } key={ data.name } />))))
+          (canShowCards && !cardSelected && (dataToDisplay.map((data) => (
+            <Card
+              content={ data }
+              key={ data.name }
+              handleClick={ onCardClicked }
+              cardSelected={ cardSelected }
+            />))))
+        }
+        {
+          (!canShowCards && cardSelected && (dataToDisplay.map((data) => (
+            <EvidencedCard
+              content={ data }
+              key={ data.name }
+              handleClick={ onCardClicked }
+              cardSelected={ cardSelected }
+            />))))
         }
       </section>
     </main>

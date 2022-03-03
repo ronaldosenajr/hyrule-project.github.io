@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default function Card({ content, handleClick }) {
+export default function EvidencedCard({ content, handleClick }) {
   const { image, name, description, id } = content;
 
   const onClicked = () => {
@@ -12,7 +12,7 @@ export default function Card({ content, handleClick }) {
     <button
       id={ id }
       type="button"
-      className="card"
+      className="evidenceCard"
       onClick={ onClicked }
     >
       <img src={ image } alt="showing the object" />
@@ -24,7 +24,7 @@ export default function Card({ content, handleClick }) {
   );
 }
 
-Card.propTypes = {
+EvidencedCard.propTypes = {
   content: PropTypes.shape({
     description: PropTypes.string,
     image: PropTypes.string,
