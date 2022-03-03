@@ -4,7 +4,7 @@ IMPORT FONT ZELDA
 
 @font-face {
 	font-family: zelda;
-	src: url("../fonts/Zelda.otf");
+	src: url("./fonts/Zelda.otf");
 }
 
 /*
@@ -22,7 +22,7 @@ CORPO DA PÁGINA
 
 body {
 	/* https://www.w3schools.com/cssref/func_linear-gradient.asp */
-	background-image: url('/media/pattern-triforce-2x.png'),linear-gradient(to bottom, #0a1928 0%, #053335 50%, #023326 100%);
+	background-image: url('./media/pattern-triforce-2x.png'),linear-gradient(to bottom, #0a1928 0%, #053335 50%, #023326 100%);
 }
 
 /* 
@@ -47,6 +47,11 @@ NAV SECTION
 	font-weight: 100;
 	font-size: 12px;
 	align-items: center;
+}
+
+.text-nav a {
+	text-decoration: none;
+	color: #F4EFE5;
 }
 
 #triforce-img {
@@ -137,6 +142,8 @@ FILTER SECTION
 .nav-btn {
 	text-decoration: none;
 	color: #F4EFE5;
+	background-color: #ffffff00;
+	border: 0px ;
 	font-family: zelda;
 	font-size: 1.1em;
 	margin-right: 10px;
@@ -147,6 +154,40 @@ FILTER SECTION
 
 .nav-btn:hover {
 	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*
+LOADER SECTION
+*/
+
+.loader-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 50vh;
+}
+
+.loader-section h3 {
+	color: #F4EFE5;
+	font-family: zelda;
+	font-size: 1.5em;
+	letter-spacing: 5px;
+	text-align: center;
+	margin-top: 20%;
+}
+
+.loader {
+	animation: is-rotating 1s infinite;
+	height: 100px;
+	width: 100px;
+}
+
+@keyframes is-rotating {
+	to {
+		transform: rotate(1turn);
+	}
 }
 
 /* 
@@ -157,6 +198,7 @@ CARDS SECTION
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	min-height: 500px;
 }
 
 .card {
@@ -169,6 +211,7 @@ CARDS SECTION
 	margin-top: 2%;
 	background-color: #0a192872;
 	border-radius: 5px;
+  border-color: rgba(229,184,54, 0.5);
 }
 
 .evidenceCard {
@@ -177,9 +220,19 @@ CARDS SECTION
 	justify-content: center;
 	margin-right: 10px;
 	margin-top: 7%;
+	margin-bottom: 5%;
 	width: 90%;
 	background-color: #0a1928d0;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.more-content {
+	width: 100%;
+	margin-top: 2%;
+}
+
+.more-content p {
+	text-align: start;
 }
 
 .card:hover {
@@ -189,6 +242,11 @@ CARDS SECTION
 .card-img {
 	margin-top: 20px;
 	width: 150px;
+}
+
+.evidenceCard .card-img {
+	width: 100px;
+	align-self: flex-start;
 }
 
 .container {
@@ -224,7 +282,7 @@ footer {
 	color: #F4EFE5;
 	flex-wrap: wrap;
 	height: 70px;
-	margin-top: 200px;
+	margin-top: 20px;
 }
 
 footer p {
@@ -475,7 +533,7 @@ MEDIA QUERY
 	}
 
 	footer {
-		margin-top: 700px;
+		margin-top: 20px;
 	}
 	
 	footer p {
@@ -516,4 +574,5 @@ MEDIA QUERY
 	.container p {
 		font-size: 1.8em;
 	}
+}
 }
