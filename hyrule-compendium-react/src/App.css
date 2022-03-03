@@ -277,7 +277,7 @@ footer {
 	color: #F4EFE5;
 	flex-wrap: wrap;
 	height: 70px;
-	margin-top: 200px;
+	margin-top: 20px;
 }
 
 footer p {
@@ -528,7 +528,7 @@ MEDIA QUERY
 	}
 
 	footer {
-		margin-top: 700px;
+		margin-top: 20px;
 	}
 	
 	footer p {
