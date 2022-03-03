@@ -29,10 +29,10 @@ export default function InitialPage() {
   };
 
   useEffect(() => {
-    if (!loading) {
+    if (!loading && !cardSelected) {
       setDataToDisplay([...allData[filterValue]]);
     }
-  }, [loading, filterValue, allData]);
+  }, [loading, filterValue, allData, cardSelected]);
 
   const handleClick = async () => {
     if (!allData.all) {
@@ -58,8 +58,9 @@ export default function InitialPage() {
     if (!allData.all) {
       getData();
     }
-    setFilterValue(name);
     setCanShowCards(true);
+    setCardSelected(false);
+    setFilterValue(name);
     myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 

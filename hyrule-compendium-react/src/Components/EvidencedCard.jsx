@@ -26,12 +26,14 @@ export default function EvidencedCard({ content, handleClick }) {
         <div className="more-content">
           {
             filteredKeys.map((value) => (
-              <p
-                key={ content[value] }
-              >
-                {`${value.charAt(0).toUpperCase() + value.slice(1)}: ${content[value]}`}
-                {' '}
-              </p>))
+              <p key={ content[value] }>
+                {
+                  `${value.charAt(0).toUpperCase() + value.slice(1)
+                    .split('_').join(' ')}: 
+                    ${content[value]}`
+                }
+              </p>
+            ))
           }
         </div>
       </div>
