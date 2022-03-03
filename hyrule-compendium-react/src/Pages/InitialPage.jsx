@@ -38,8 +38,9 @@ export default function InitialPage() {
     if (!allData.all) {
       getData();
     }
-    setFilterValue('all');
     setCanShowCards(true);
+    setCardSelected(false);
+    setFilterValue('all');
     myRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
