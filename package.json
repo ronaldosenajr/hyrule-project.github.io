@@ -1,24 +1,58 @@
 {
-  "name": "package.json",
-  "version": "1.0.0",
-  "description": "A website project contemplating Hyrule.",
-  "main": "index.js",
+  "name": "hyrule-compendium",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@types/jest": "^27.0.1",
-    "jest": "^27.0.6"
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4"
   },
-  "devDependencies": {},
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "index.js"
+    ]
+  },
   "scripts": {
-    "test": "jest"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
+    "lint:styles": "npx stylelint '**/*.css'",
+    "test-coverage": "react-scripts test --coverage --watchAll=false"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ronaldosenajr/Hyrule-Project.git"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ronaldosenajr/Hyrule-Project/issues"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
-  "homepage": "https://github.com/ronaldosenajr/Hyrule-Project#readme"
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-trybe-frontend": "1.2.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "postcss": "^8.4.4",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0"
+  }
 }
