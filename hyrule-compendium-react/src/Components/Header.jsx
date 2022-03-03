@@ -14,7 +14,9 @@ function Header() {
         </a>
       </div>
       <div className="text-nav">
-        <h2>Hyrule Compendium</h2>
+        <a href="#filter-buttons">
+          <h2>Hyrule Compendium</h2>
+        </a>
       </div>
     </nav>
   );

@@ -49,6 +49,11 @@ NAV SECTION
 	align-items: center;
 }
 
+.text-nav a {
+	text-decoration: none;
+	color: #F4EFE5;
+}
+
 #triforce-img {
 	margin-top: 10px;
 	margin-bottom: 10px;
