@@ -4,6 +4,7 @@ import zeldaTrailer from '../media/zelda-trailer.mov';
 import zeldaLogo from '../media/zelda-botw-logo.png';
 import triforcePng from '../media/Triforce_Artwork.png';
 import EvidencedCard from '../Components/EvidencedCard';
+import Footer from '../Components/Footer';
 
 export default function InitialPage() {
   const [allData, setAllData] = useState({});
@@ -173,6 +174,7 @@ export default function InitialPage() {
             />))))
         }
       </section>
+      <Footer />
     </main>
   );
 }
